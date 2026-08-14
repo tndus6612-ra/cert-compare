@@ -8,7 +8,7 @@
     "monthsApprox": 1.2,
     "periodDescription": "25 영업일",
     "governmentFeeLocal": "KRW 130,000",
-    "validity": "무기한",
+    "validity": "5년 (갱신)",
     "notes": "동등품목 인정 시 신속 심사",
     "source": "MFDS 전자민원 수수료표 2025-2026"
   },
@@ -21,7 +21,7 @@
     "monthsApprox": 3,
     "periodDescription": "65 영업일",
     "governmentFeeLocal": "KRW 719,000",
-    "validity": "무기한",
+    "validity": "5년 (갱신)",
     "notes": "동등성 불인정 시 80영업일로 연장",
     "source": "MFDS 전자민원 수수료표 2025-2026"
   },
