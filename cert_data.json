@@ -123,7 +123,7 @@
     "applicationType": "변경",
     "productClass": "Class II 등록변경",
     "monthsApprox": 9,
-    "periodDescription": "신규보다 단축",
+    "periodDescription": "법정심사기간은 신규와 동일(60일+20일), 실무 총소요 약 4.5~10.5개월",
     "governmentFeeLocal": "RMB 42,000",
     "validity": "해당없음",
     "notes": null,
@@ -136,7 +136,7 @@
     "applicationType": "변경",
     "productClass": "Class III 등록변경",
     "monthsApprox": 12,
-    "periodDescription": "신규보다 단축",
+    "periodDescription": "법정심사기간은 신규와 동일(90일+20일), 실무 총소요 약 11~17개월+",
     "governmentFeeLocal": "RMB 50,400",
     "validity": "해당없음",
     "notes": null,
@@ -670,10 +670,10 @@
     "productClass": "전체 등급",
     "monthsApprox": null,
     "periodDescription": "변경유형별 상이",
-    "governmentFeeLocal": "건별 상이 - 자료 확인 필요",
+    "governmentFeeLocal": "R$ 175.72~3,514.32(Class III/IV, 기업규모 6단계); Class I/II·라벨변경은 면제",
     "validity": "-",
-    "notes": null,
-    "source": "ANVISA RDC 73/2016"
+    "notes": "기업 규모(Micro~Grupo I)에 따라 6단계로 차등",
+    "source": "ANVISA RDC 857/2024 Anexo I"
   },
   {
     "region": "중남미",
@@ -683,10 +683,10 @@
     "productClass": "Class IIb/III",
     "monthsApprox": 7,
     "periodDescription": "6~8개월",
-    "governmentFeeLocal": "COP 2,570,590~4,412,400",
+    "governmentFeeLocal": "COP 4,412,400",
     "validity": "10년(Class III IVD 5년)",
     "notes": null,
-    "source": "INVIMA 추정치"
+    "source": "INVIMA Resolución 2025067543 de 2025"
   },
   {
     "region": "중남미",
@@ -696,10 +696,10 @@
     "productClass": "전체 등급",
     "monthsApprox": 9,
     "periodDescription": "6~12개월",
-    "governmentFeeLocal": "자료 확인 필요",
+    "governmentFeeLocal": "ARS 4,450~10,600(수입, 등급별)",
     "validity": "5년 (갱신)",
-    "notes": "IMDRF 관찰국",
-    "source": "MedDeviceGuide LATAM 2026"
+    "notes": "IMDRF 관찰국. 연 유지비(ARS 39,500~93,000)는 별도",
+    "source": "ANMAT 공식 아란셀표(2025-06 기준)"
   },
   {
     "region": "중남미",
