@@ -59,10 +59,10 @@
     "productClass": "Class II (Ninsho)",
     "monthsApprox": 4.5,
     "periodDescription": "3~6개월",
-    "governmentFeeLocal": "약 $30,000 (평균)",
+    "governmentFeeLocal": "¥1,500,000+/건 (인증기관(RCB)별 상이)",
     "validity": "QMS 5년 갱신",
     "notes": "제3자 인증기관 심사",
-    "source": "MedDeviceGuide 2026"
+    "source": "PMDA(인증기관별 수수료, 국가고시 수수료표 없음)"
   },
   {
     "region": "아시아",
@@ -72,10 +72,10 @@
     "productClass": "Class III/IV (Shonin)",
     "monthsApprox": 21,
     "periodDescription": "6~36개월",
-    "governmentFeeLocal": "$20,000~$120,000",
-    "validity": "무기한",
+    "governmentFeeLocal": "¥600,000~¥17,721,200",
+    "validity": "QMS 5년 갱신",
     "notes": "임상근거 요구 수준에 따라 편차 큼",
-    "source": "MedDeviceGuide 2026"
+    "source": "의약품의료기기등법 관계 수수료령 (2025-05-31 개정)"
   },
   {
     "region": "아시아",
@@ -241,7 +241,7 @@
     "productClass": "Class C/D",
     "monthsApprox": 1.2,
     "periodDescription": "10~60일",
-    "governmentFeeLocal": "VND 3,000,000~6,000,000",
+    "governmentFeeLocal": "VND 3,000,000(2026말까지 50%할인)",
     "validity": "무기한",
     "notes": null,
     "source": "MoH 2025"
@@ -397,10 +397,10 @@
     "productClass": "Class I",
     "monthsApprox": 0.2,
     "periodDescription": "1~5일",
-    "governmentFeeLocal": "AUD 621",
-    "validity": "영구",
+    "governmentFeeLocal": "AUD 651",
+    "validity": "영구(연 유지비)",
     "notes": null,
-    "source": "TGA 2025-07"
+    "source": "TGA 2026-07"
   },
   {
     "region": "오세아니아",
@@ -410,10 +410,10 @@
     "productClass": "Class II/III/IV",
     "monthsApprox": 9,
     "periodDescription": "6~12개월",
-    "governmentFeeLocal": "AUD 1,187~1,530 + 감사비(최대 17,288)",
+    "governmentFeeLocal": "AUD 1,244~1,603 + 감사비(최대 18,118)",
     "validity": "영구(연 유지비)",
     "notes": "MDSAP 인정시 감사비 절감",
-    "source": "TGA 2025-07"
+    "source": "TGA 2026-07"
   },
   {
     "region": "북미",
@@ -632,7 +632,7 @@
     "monthsApprox": 1,
     "periodDescription": "30일",
     "governmentFeeLocal": "BRL 1,406",
-    "validity": "10년",
+    "validity": "무기한",
     "notes": null,
     "source": "ANVISA"
   },
@@ -684,7 +684,7 @@
     "monthsApprox": 9,
     "periodDescription": "6~12개월",
     "governmentFeeLocal": "자료 확인 필요",
-    "validity": null,
+    "validity": "5년 (갱신)",
     "notes": "IMDRF 관찰국",
     "source": "MedDeviceGuide LATAM 2026"
   },
@@ -697,7 +697,7 @@
     "monthsApprox": 4.5,
     "periodDescription": "3~6개월",
     "governmentFeeLocal": "자료 확인 필요",
-    "validity": "무기한",
+    "validity": "3년 (자동갱신)",
     "notes": "역내 최속",
     "source": "MedDeviceGuide LATAM 2026"
   },
