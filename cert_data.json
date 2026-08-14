@@ -110,7 +110,7 @@
     "applicationType": "신규",
     "productClass": "Class III (수입)",
     "monthsApprox": 24,
-    "periodDescription": "12~36개월",
+    "periodDescription": "18~36개월",
     "governmentFeeLocal": "RMB 308,800",
     "validity": "5년 (갱신)",
     "notes": "현지 임상시험 요구 가능",
@@ -301,15 +301,28 @@
   {
     "region": "유럽",
     "country": "영국",
-    "authority": "MHRA",
+    "authority": "MHRA (DORS 등록)",
     "applicationType": "신규/유지",
     "productClass": "전체 등급",
-    "monthsApprox": 4.5,
-    "periodDescription": "3~6개월",
+    "monthsApprox": 0.25,
+    "periodDescription": "2~5 영업일 (보완요청 시 최대 18영업일)",
     "governmentFeeLocal": "GBP 300/카테고리/년(2026-04 연간제)",
-    "validity": "연 1회 갱신",
-    "notes": "변경신청 별도 수수료 없음",
-    "source": "MHRA DORS, SI 2026/197"
+    "validity": "무기한 (연 1회 유지수수료 필수, 재심사 아님)",
+    "notes": "MHRA 등록은 적합성평가가 아닌 신고 절차. 아래 UKCA/CE 인증을 먼저 마쳐야 등록 가능. 변경신청 별도 수수료 없음",
+    "source": "MHRA Device Registrations Reference Guide (2026-04), SI 2026/197"
+  },
+  {
+    "region": "유럽",
+    "country": "영국",
+    "authority": "UK Approved Body (UKCA/CE)",
+    "applicationType": "신규 (MHRA 등록의 전제조건)",
+    "productClass": "Class I(멸균/측정 포함)·IIa·IIb·III·능동이식형 (비멸균·비측정 Class I·일반 IVD는 자가인증)",
+    "monthsApprox": null,
+    "periodDescription": "등급별 상이 - 자가인증은 즉시~수주, Approved Body 심사는 수개월~1년+ (정부 공식 처리기간 미고시)",
+    "governmentFeeLocal": "정부 고시 수수료 없음 (Approved Body별 견적)",
+    "validity": "인증서별 상이 (통상 수년, 만료일 지정)",
+    "notes": "실제 병목 구간. 예전 데이터의 '3~6개월'은 이 단계에 대한 업계 추정치였음 (MHRA 등록 자체 소요기간과는 무관)",
+    "source": "gov.uk - Medical devices: conformity assessment and the UKCA mark"
   },
   {
     "region": "중동",
@@ -321,7 +334,7 @@
     "periodDescription": "35 근무일",
     "governmentFeeLocal": "SAR 15,000",
     "validity": "3년",
-    "notes": "현지대리인(AR) 필수",
+    "notes": "현지대리인(AR) 필수. 35근무일은 서류완비 후 심사단계만 해당하며, 실제 총소요기간은 등급별로 더 길 수 있음",
     "source": "SFDA MDMA 2025"
   },
   {
@@ -334,7 +347,7 @@
     "periodDescription": "35 근무일",
     "governmentFeeLocal": "SAR 19,000",
     "validity": "3년",
-    "notes": null,
+    "notes": "35근무일은 서류완비 후 심사단계만 해당하며, 실제 총소요기간은 등급별로 더 길 수 있음",
     "source": "SFDA MDMA 2025"
   },
   {
@@ -347,7 +360,7 @@
     "periodDescription": "35 근무일",
     "governmentFeeLocal": "SAR 21,000",
     "validity": "3년",
-    "notes": null,
+    "notes": "35근무일은 서류완비 후 심사단계만 해당하며, 실제 총소요기간은 등급별로 더 길 수 있음",
     "source": "SFDA MDMA 2025"
   },
   {
@@ -360,7 +373,7 @@
     "periodDescription": "35 근무일",
     "governmentFeeLocal": "SAR 23,000",
     "validity": "3년",
-    "notes": null,
+    "notes": "35근무일은 서류완비 후 심사단계만 해당하며, 실제 총소요기간은 등급별로 더 길 수 있음",
     "source": "SFDA MDMA 2025"
   },
   {
@@ -606,7 +619,7 @@
     "monthsApprox": 2,
     "periodDescription": "1~3개월",
     "governmentFeeLocal": "MXN 15,206",
-    "validity": "10년(2026-01 개정)",
+    "validity": "5년(최초)/10년(갱신, 2026-01 개정)",
     "notes": null,
     "source": "COFEPRIS 2026"
   },
@@ -619,7 +632,7 @@
     "monthsApprox": 6.5,
     "periodDescription": "3~10개월",
     "governmentFeeLocal": "MXN 22,302~28,394",
-    "validity": "10년(2026-01 개정)",
+    "validity": "5년(최초)/10년(갱신, 2026-01 개정)",
     "notes": "패스트트랙(FDA 등 승인시) 30일",
     "source": "COFEPRIS 2026"
   },
@@ -707,12 +720,12 @@
     "authority": "DIGEMID",
     "applicationType": "신규",
     "productClass": "Class I",
-    "monthsApprox": 2.8,
-    "periodDescription": "60 영업일",
-    "governmentFeeLocal": "약 $400",
+    "monthsApprox": 1,
+    "periodDescription": "22 영업일",
+    "governmentFeeLocal": "S/ 1,438.70",
     "validity": "5년(갱신)",
     "notes": null,
-    "source": "MedDeviceGuide LATAM 2026"
+    "source": "DIGEMID TUPA (D.S. N° 011-2026-SA, 2026-07-21 관보 게재)"
   },
   {
     "region": "중남미",
@@ -720,11 +733,11 @@
     "authority": "DIGEMID",
     "applicationType": "신규",
     "productClass": "Class III/IV",
-    "monthsApprox": 5.6,
-    "periodDescription": "120 영업일",
-    "governmentFeeLocal": "약 $580",
+    "monthsApprox": 3.1,
+    "periodDescription": "66 영업일",
+    "governmentFeeLocal": "S/ 1,948.40~2,176.40",
     "validity": "5년(갱신)",
     "notes": null,
-    "source": "MedDeviceGuide LATAM 2026"
+    "source": "DIGEMID TUPA (D.S. N° 011-2026-SA, 2026-07-21 관보 게재)"
   }
 ]
