@@ -85,10 +85,10 @@
     "productClass": "전체 등급 (경미/중대 변경)",
     "monthsApprox": null,
     "periodDescription": "건에 따라 상이",
-    "governmentFeeLocal": "공개된 고정 수수료 자료 확인 필요",
+    "governmentFeeLocal": "경미변경(届出): 수수료 없음; 중대변경(承認申請): ¥182,200~9,514,200(등급·변경유형별 차등)",
     "validity": "-",
-    "notes": null,
-    "source": "PMDA 안내"
+    "notes": "중대변경 수수료는 신의료기기/개량/후발 여부·임상데이터 요구 여부·등급(II·III/IV)에 따라 11단계로 세분화됨",
+    "source": "의약품의료기기등법 관계 수수료령 (令和4年5月20日 개정)"
   },
   {
     "region": "아시아",
