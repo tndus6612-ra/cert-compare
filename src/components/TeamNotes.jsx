@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
 
 const FUNCTION_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/add-note`
+const PIN_STORAGE_KEY = 'certCompareTeamPin'
 
 function formatDate(iso) {
   const d = new Date(iso)
@@ -24,6 +25,7 @@ export default function TeamNotes({ entry }) {
   const [notes, setNotes] = useState([])
   const [loading, setLoading] = useState(true)
   const [modalOpen, setModalOpen] = useState(false)
+  const [pinKnown, setPinKnown] = useState(false)
   const [author, setAuthor] = useState('')
   const [pin, setPin] = useState('')
   const [actualMonths, setActualMonths] = useState('')
@@ -64,6 +66,18 @@ export default function TeamNotes({ entry }) {
     }
   }, [notes])
 
+  function openModal() {
+    const saved = localStorage.getItem(PIN_STORAGE_KEY)
+    if (saved) {
+      setPin(saved)
+      setPinKnown(true)
+    } else {
+      setPin('')
+      setPinKnown(false)
+    }
+    setModalOpen(true)
+  }
+
   const summaryParts = []
   if (aggregate.avgMonths != null) summaryParts.push(`약 ${aggregate.avgMonths.toFixed(1)}개월`)
   if (aggregate.avgFee != null) summaryParts.push(`${currencyLabel} ${formatNumber(aggregate.avgFee)}`.trim())
@@ -93,11 +107,17 @@ export default function TeamNotes({ entry }) {
       const body = await res.json()
       if (!res.ok) {
         setError(body.error ?? '저장에 실패했습니다')
+        if (body.error?.includes('PIN')) {
+          localStorage.removeItem(PIN_STORAGE_KEY)
+          setPinKnown(false)
+          setPin('')
+        }
         return
       }
+      localStorage.setItem(PIN_STORAGE_KEY, pin)
+      setPinKnown(true)
       setNotes((prev) => [body.data, ...prev])
       setAuthor('')
-      setPin('')
       setActualMonths('')
       setActualFee('')
       setNote('')
@@ -116,7 +136,7 @@ export default function TeamNotes({ entry }) {
             팀 실제경험{summaryText && ` · ${summaryText}`} ({notes.length}건)
           </span>
           <button
-            onClick={() => setModalOpen(true)}
+            onClick={openModal}
             className="font-medium text-amber-700 underline decoration-dotted hover:text-amber-900"
           >
             이력보기
@@ -124,7 +144,7 @@ export default function TeamNotes({ entry }) {
         </>
       ) : (
         <button
-          onClick={() => setModalOpen(true)}
+          onClick={openModal}
           className="font-medium text-slate-400 underline decoration-dotted hover:text-slate-600"
         >
           + 실제경험 기록하기
@@ -193,7 +213,22 @@ export default function TeamNotes({ entry }) {
             </ul>
 
             <form onSubmit={handleSubmit} className="mt-4 space-y-1.5 border-t border-slate-100 pt-3">
-              <p className="text-xs font-semibold text-slate-500">새 경험 추가</p>
+              <div className="flex items-center justify-between">
+                <p className="text-xs font-semibold text-slate-500">새 경험 추가</p>
+                {pinKnown && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      localStorage.removeItem(PIN_STORAGE_KEY)
+                      setPinKnown(false)
+                      setPin('')
+                    }}
+                    className="text-xs text-slate-400 underline decoration-dotted hover:text-slate-600"
+                  >
+                    PIN 다시 입력
+                  </button>
+                )}
+              </div>
               <div className="flex gap-1.5">
                 <input
                   type="text"
@@ -201,16 +236,18 @@ export default function TeamNotes({ entry }) {
                   value={author}
                   onChange={(e) => setAuthor(e.target.value)}
                   required
-                  className="w-1/2 rounded border border-slate-200 px-2 py-1 text-xs focus:outline-none"
+                  className={pinKnown ? 'w-full rounded border border-slate-200 px-2 py-1 text-xs focus:outline-none' : 'w-1/2 rounded border border-slate-200 px-2 py-1 text-xs focus:outline-none'}
                 />
-                <input
-                  type="password"
-                  placeholder="팀 PIN"
-                  value={pin}
-                  onChange={(e) => setPin(e.target.value)}
-                  required
-                  className="w-1/2 rounded border border-slate-200 px-2 py-1 text-xs focus:outline-none"
-                />
+                {!pinKnown && (
+                  <input
+                    type="password"
+                    placeholder="팀 PIN (최초 1회만 입력)"
+                    value={pin}
+                    onChange={(e) => setPin(e.target.value)}
+                    required
+                    className="w-1/2 rounded border border-slate-200 px-2 py-1 text-xs focus:outline-none"
+                  />
+                )}
               </div>
               <div className="flex gap-1.5">
                 <input
