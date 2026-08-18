@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { supabase } from '../lib/supabaseClient'
 import { PIN_STORAGE_KEY } from '../lib/teamPin'
 
@@ -151,13 +152,12 @@ export default function TeamNotes({ entry }) {
         </button>
       )}
 
-      {modalOpen && (
-        <div
-          className="fixed inset-0 z-50 overflow-y-auto bg-black/40 p-4"
-          onClick={() => setModalOpen(false)}
-        >
+      {modalOpen &&
+        createPortal(
+          <div className="fixed inset-0 z-50 overflow-y-auto bg-black/40" onClick={() => setModalOpen(false)}>
+          <div className="flex min-h-full items-center justify-center p-4">
           <div
-            className="mx-auto my-8 w-full max-w-lg rounded-xl bg-white p-5 text-left shadow-xl"
+            className="w-full max-w-lg rounded-xl bg-white p-5 text-left shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-start justify-between gap-2">
@@ -283,8 +283,10 @@ export default function TeamNotes({ entry }) {
               </button>
             </form>
           </div>
-        </div>
-      )}
+          </div>
+          </div>,
+          document.body,
+        )}
     </div>
   )
 }
