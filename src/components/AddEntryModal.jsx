@@ -88,11 +88,11 @@ export default function AddEntryModal({ onAdded }) {
 
       {open && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
+          className="fixed inset-0 z-50 overflow-y-auto bg-black/40 p-4"
           onClick={() => setOpen(false)}
         >
           <div
-            className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-xl bg-white p-5 text-left shadow-xl"
+            className="mx-auto my-8 w-full max-w-lg rounded-xl bg-white p-5 text-left shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-start justify-between gap-2">

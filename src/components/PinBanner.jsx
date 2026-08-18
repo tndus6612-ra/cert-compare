@@ -22,8 +22,8 @@ export default function PinBanner() {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-      <div className="w-full max-w-sm rounded-2xl bg-white p-6 text-center shadow-2xl">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/50 p-4">
+      <div className="mx-auto my-8 w-full max-w-sm rounded-2xl bg-white p-6 text-center shadow-2xl">
         <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-2xl">🔑</div>
         <h2 className="mt-3 text-lg font-bold text-slate-900">RA팀이신가요?</h2>
         <p className="mt-1 text-sm text-slate-500">
