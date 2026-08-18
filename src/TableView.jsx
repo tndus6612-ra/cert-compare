@@ -90,8 +90,8 @@ export default function TableView({ filtered }) {
           </tr>
         </thead>
         <tbody className="divide-y divide-slate-100">
-          {sorted.map((entry, i) => (
-            <tr key={i} className="hover:bg-slate-50">
+          {sorted.map((entry) => (
+            <tr key={entry.id} className="hover:bg-slate-50">
               {COLUMNS.map((col) => (
                 <td key={col.key} className="max-w-[16rem] px-3 py-2 align-top text-slate-700">
                   {renderCell(entry, col.key)}

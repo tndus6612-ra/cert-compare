@@ -1,5 +1,6 @@
 import { REGION_ORDER, REGION_STYLES } from './lib/certUtils'
 import Badge from './components/Badge'
+import TeamNotes from './components/TeamNotes'
 
 function EntryRow({ entry }) {
   return (
@@ -34,6 +35,7 @@ function EntryRow({ entry }) {
         )}
       </dl>
       <p className="mt-1 text-xs text-slate-300">출처: {entry.source}</p>
+      <TeamNotes certId={entry.id} />
     </div>
   )
 }
@@ -46,8 +48,8 @@ function CountryCard({ country, authority, entries }) {
         <span className="text-xs font-medium text-slate-400">{authority}</span>
       </div>
       <div>
-        {entries.map((entry, i) => (
-          <EntryRow key={i} entry={entry} />
+        {entries.map((entry) => (
+          <EntryRow key={entry.id} entry={entry} />
         ))}
       </div>
     </div>

@@ -1,5 +1,6 @@
 [
   {
+    "id": "c001",
     "region": "아시아",
     "country": "대한민국",
     "authority": "MFDS",
@@ -13,6 +14,7 @@
     "source": "MFDS 전자민원 수수료표 2025-2026"
   },
   {
+    "id": "c002",
     "region": "아시아",
     "country": "대한민국",
     "authority": "MFDS",
@@ -26,6 +28,7 @@
     "source": "MFDS 전자민원 수수료표 2025-2026"
   },
   {
+    "id": "c003",
     "region": "아시아",
     "country": "대한민국",
     "authority": "MFDS",
@@ -39,6 +42,7 @@
     "source": "의료기기법 제50조·시행규칙 제65조"
   },
   {
+    "id": "c004",
     "region": "아시아",
     "country": "일본",
     "authority": "PMDA",
@@ -52,6 +56,7 @@
     "source": "MedDeviceGuide 2026"
   },
   {
+    "id": "c005",
     "region": "아시아",
     "country": "일본",
     "authority": "PMDA",
@@ -65,6 +70,7 @@
     "source": "PMDA(인증기관별 수수료, 국가고시 수수료표 없음)"
   },
   {
+    "id": "c006",
     "region": "아시아",
     "country": "일본",
     "authority": "PMDA",
@@ -78,6 +84,7 @@
     "source": "의약품의료기기등법 관계 수수료령 (2025-05-31 개정)"
   },
   {
+    "id": "c007",
     "region": "아시아",
     "country": "일본",
     "authority": "PMDA",
@@ -91,6 +98,7 @@
     "source": "의약품의료기기등법 관계 수수료령 (令和4年5月20日 개정)"
   },
   {
+    "id": "c008",
     "region": "아시아",
     "country": "중국",
     "authority": "NMPA",
@@ -104,6 +112,7 @@
     "source": "NMPA 수수료표"
   },
   {
+    "id": "c009",
     "region": "아시아",
     "country": "중국",
     "authority": "NMPA",
@@ -117,6 +126,7 @@
     "source": "NMPA 수수료표"
   },
   {
+    "id": "c010",
     "region": "아시아",
     "country": "중국",
     "authority": "NMPA",
@@ -130,6 +140,7 @@
     "source": "NMPA 수수료표"
   },
   {
+    "id": "c011",
     "region": "아시아",
     "country": "중국",
     "authority": "NMPA",
@@ -143,6 +154,7 @@
     "source": "NMPA 수수료표"
   },
   {
+    "id": "c012",
     "region": "아시아",
     "country": "중국",
     "authority": "NMPA",
@@ -156,6 +168,7 @@
     "source": "NMPA 수수료표"
   },
   {
+    "id": "c013",
     "region": "아시아",
     "country": "인도",
     "authority": "CDSCO",
@@ -169,6 +182,7 @@
     "source": "CDSCO Rules 2017"
   },
   {
+    "id": "c014",
     "region": "아시아",
     "country": "인도",
     "authority": "CDSCO",
@@ -182,6 +196,7 @@
     "source": "CDSCO Rules 2017"
   },
   {
+    "id": "c015",
     "region": "아시아",
     "country": "싱가포르",
     "authority": "HSA",
@@ -195,6 +210,7 @@
     "source": "HSA 2024-07"
   },
   {
+    "id": "c016",
     "region": "아시아",
     "country": "싱가포르",
     "authority": "HSA",
@@ -208,6 +224,7 @@
     "source": "HSA 2024-07"
   },
   {
+    "id": "c017",
     "region": "아시아",
     "country": "싱가포르",
     "authority": "HSA",
@@ -221,6 +238,7 @@
     "source": "HSA 2024-07"
   },
   {
+    "id": "c018",
     "region": "아시아",
     "country": "베트남",
     "authority": "MoH",
@@ -234,6 +252,7 @@
     "source": "MoH 2025"
   },
   {
+    "id": "c019",
     "region": "아시아",
     "country": "베트남",
     "authority": "MoH",
@@ -247,6 +266,7 @@
     "source": "MoH 2025"
   },
   {
+    "id": "c020",
     "region": "유럽",
     "country": "EU (역내)",
     "authority": "Notified Body(MDR)",
@@ -260,6 +280,7 @@
     "source": "DG SANTE"
   },
   {
+    "id": "c021",
     "region": "유럽",
     "country": "EU (역내)",
     "authority": "Notified Body(MDR)",
@@ -273,6 +294,7 @@
     "source": "DG SANTE"
   },
   {
+    "id": "c022",
     "region": "유럽",
     "country": "EU (역내)",
     "authority": "Notified Body(MDR)",
@@ -286,6 +308,7 @@
     "source": "DG SANTE, MedDeviceGuide 2026"
   },
   {
+    "id": "c023",
     "region": "유럽",
     "country": "EU (역내)",
     "authority": "Notified Body(MDR)",
@@ -299,6 +322,7 @@
     "source": "DG SANTE"
   },
   {
+    "id": "c024",
     "region": "유럽",
     "country": "영국",
     "authority": "MHRA (DORS 등록)",
@@ -312,6 +336,7 @@
     "source": "MHRA Device Registrations Reference Guide (2026-04), SI 2026/197"
   },
   {
+    "id": "c025",
     "region": "유럽",
     "country": "영국",
     "authority": "UK Approved Body (UKCA/CE)",
@@ -325,6 +350,7 @@
     "source": "gov.uk - Medical devices: conformity assessment and the UKCA mark"
   },
   {
+    "id": "c026",
     "region": "중동",
     "country": "사우디아라비아",
     "authority": "SFDA",
@@ -338,6 +364,7 @@
     "source": "SFDA MDMA 2025"
   },
   {
+    "id": "c027",
     "region": "중동",
     "country": "사우디아라비아",
     "authority": "SFDA",
@@ -351,6 +378,7 @@
     "source": "SFDA MDMA 2025"
   },
   {
+    "id": "c028",
     "region": "중동",
     "country": "사우디아라비아",
     "authority": "SFDA",
@@ -364,6 +392,7 @@
     "source": "SFDA MDMA 2025"
   },
   {
+    "id": "c029",
     "region": "중동",
     "country": "사우디아라비아",
     "authority": "SFDA",
@@ -377,6 +406,7 @@
     "source": "SFDA MDMA 2025"
   },
   {
+    "id": "c030",
     "region": "중동",
     "country": "사우디아라비아",
     "authority": "SFDA",
@@ -390,6 +420,7 @@
     "source": "SFDA MDMA 2025"
   },
   {
+    "id": "c031",
     "region": "중동",
     "country": "사우디아라비아",
     "authority": "SFDA",
@@ -403,6 +434,7 @@
     "source": "SFDA MDMA 2025"
   },
   {
+    "id": "c032",
     "region": "오세아니아",
     "country": "호주",
     "authority": "TGA",
@@ -416,6 +448,7 @@
     "source": "TGA 2026-07"
   },
   {
+    "id": "c033",
     "region": "오세아니아",
     "country": "호주",
     "authority": "TGA",
@@ -429,6 +462,7 @@
     "source": "TGA 2026-07"
   },
   {
+    "id": "c034",
     "region": "북미",
     "country": "미국",
     "authority": "FDA",
@@ -442,6 +476,7 @@
     "source": "FDA FY2026"
   },
   {
+    "id": "c035",
     "region": "북미",
     "country": "미국",
     "authority": "FDA",
@@ -455,6 +490,7 @@
     "source": "FDA FY2026"
   },
   {
+    "id": "c036",
     "region": "북미",
     "country": "미국",
     "authority": "FDA",
@@ -468,6 +504,7 @@
     "source": "FDA FY2026"
   },
   {
+    "id": "c037",
     "region": "북미",
     "country": "미국",
     "authority": "FDA",
@@ -481,6 +518,7 @@
     "source": "FDA FY2026"
   },
   {
+    "id": "c038",
     "region": "북미",
     "country": "미국",
     "authority": "FDA",
@@ -494,6 +532,7 @@
     "source": "FDA FY2026"
   },
   {
+    "id": "c039",
     "region": "북미",
     "country": "미국",
     "authority": "FDA",
@@ -507,6 +546,7 @@
     "source": "FDA FY2026"
   },
   {
+    "id": "c040",
     "region": "북미",
     "country": "캐나다",
     "authority": "Health Canada",
@@ -520,6 +560,7 @@
     "source": "HC 2026-04"
   },
   {
+    "id": "c041",
     "region": "북미",
     "country": "캐나다",
     "authority": "Health Canada",
@@ -533,6 +574,7 @@
     "source": "HC 2026-04"
   },
   {
+    "id": "c042",
     "region": "북미",
     "country": "캐나다",
     "authority": "Health Canada",
@@ -546,6 +588,7 @@
     "source": "HC 2026-04"
   },
   {
+    "id": "c043",
     "region": "북미",
     "country": "캐나다",
     "authority": "Health Canada",
@@ -559,6 +602,7 @@
     "source": "HC 2026-04"
   },
   {
+    "id": "c044",
     "region": "북미",
     "country": "캐나다",
     "authority": "Health Canada",
@@ -572,6 +616,7 @@
     "source": "HC 2026-04"
   },
   {
+    "id": "c045",
     "region": "북미",
     "country": "캐나다",
     "authority": "Health Canada",
@@ -585,6 +630,7 @@
     "source": "HC 2026-04"
   },
   {
+    "id": "c046",
     "region": "북미",
     "country": "캐나다",
     "authority": "Health Canada",
@@ -598,6 +644,7 @@
     "source": "HC 2026-04"
   },
   {
+    "id": "c047",
     "region": "북미",
     "country": "캐나다",
     "authority": "Health Canada",
@@ -611,6 +658,7 @@
     "source": "HC 2026-04"
   },
   {
+    "id": "c048",
     "region": "북미",
     "country": "멕시코",
     "authority": "COFEPRIS",
@@ -624,6 +672,7 @@
     "source": "COFEPRIS 2026"
   },
   {
+    "id": "c049",
     "region": "북미",
     "country": "멕시코",
     "authority": "COFEPRIS",
@@ -637,6 +686,7 @@
     "source": "COFEPRIS 2026"
   },
   {
+    "id": "c050",
     "region": "중남미",
     "country": "브라질",
     "authority": "ANVISA",
@@ -650,6 +700,7 @@
     "source": "ANVISA"
   },
   {
+    "id": "c051",
     "region": "중남미",
     "country": "브라질",
     "authority": "ANVISA",
@@ -663,6 +714,7 @@
     "source": "ANVISA, MedDeviceGuide 2026"
   },
   {
+    "id": "c052",
     "region": "중남미",
     "country": "브라질",
     "authority": "ANVISA",
@@ -676,6 +728,7 @@
     "source": "ANVISA RDC 857/2024 Anexo I"
   },
   {
+    "id": "c053",
     "region": "중남미",
     "country": "콜롬비아",
     "authority": "INVIMA",
@@ -689,6 +742,7 @@
     "source": "INVIMA Resolución 2025067543 de 2025"
   },
   {
+    "id": "c054",
     "region": "중남미",
     "country": "아르헨티나",
     "authority": "ANMAT",
@@ -702,6 +756,7 @@
     "source": "ANMAT 공식 아란셀표(2025-06 기준)"
   },
   {
+    "id": "c055",
     "region": "중남미",
     "country": "칠레",
     "authority": "ISP",
@@ -715,6 +770,7 @@
     "source": "MedDeviceGuide LATAM 2026"
   },
   {
+    "id": "c056",
     "region": "중남미",
     "country": "페루",
     "authority": "DIGEMID",
@@ -728,6 +784,7 @@
     "source": "DIGEMID TUPA (D.S. N° 011-2026-SA, 2026-07-21 관보 게재)"
   },
   {
+    "id": "c057",
     "region": "중남미",
     "country": "페루",
     "authority": "DIGEMID",
