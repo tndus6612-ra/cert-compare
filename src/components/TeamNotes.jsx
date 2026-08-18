@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
+import { PIN_STORAGE_KEY } from '../lib/teamPin'
 
 const FUNCTION_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/add-note`
-const PIN_STORAGE_KEY = 'certCompareTeamPin'
 
 function formatDate(iso) {
   const d = new Date(iso)

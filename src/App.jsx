@@ -3,6 +3,7 @@ import certData from '../cert_data.json'
 import { REGION_ORDER, categorize, TYPE_FILTERS } from './lib/certUtils'
 import OverviewView from './OverviewView'
 import TableView from './TableView'
+import PinBanner from './components/PinBanner'
 
 const VIEWS = [
   { key: 'overview', label: '한눈에 보기' },
@@ -27,6 +28,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen pb-16">
+      <PinBanner />
       <header className="sticky top-0 z-10 border-b border-slate-200 bg-white/90 backdrop-blur">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
           <div className="flex flex-wrap items-start justify-between gap-3">
