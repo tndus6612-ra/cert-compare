@@ -33,13 +33,27 @@
     "country": "대한민국",
     "authority": "MFDS",
     "applicationType": "변경",
-    "productClass": "전체 등급 (변경허가)",
-    "monthsApprox": null,
-    "periodDescription": "건에 따라 상이",
-    "governmentFeeLocal": "변경유형 3단계(경미/단순/기술문서심사)로 신규보다 낮음",
+    "productClass": "Class II (변경인증)",
+    "monthsApprox": 0.25,
+    "periodDescription": "5 영업일(법정처리기간, 한국의료기기안전정보원 위탁처리)",
+    "governmentFeeLocal": "KRW 82,000(전자민원)/93,000(방문·우편)",
     "validity": "-",
-    "notes": "전자민원시스템에서 건별 산출",
-    "source": "의료기기법 제50조·시행규칙 제65조"
+    "notes": "신규 인증과 달리 변경 유형별 차등 없이 단일 수수료·처리기간. 기술문서 심사가 별도로 필요한 경우 그 사전심사 절차·기간은 미포함",
+    "source": "한국의료기기안전정보원(NIDS) 2등급 인증처리 수수료표; 정부24 '의료기기 인증사항 변경인증 신청'"
+  },
+  {
+    "id": "c058",
+    "region": "아시아",
+    "country": "대한민국",
+    "authority": "MFDS",
+    "applicationType": "변경",
+    "productClass": "Class III/IV (변경허가)",
+    "monthsApprox": null,
+    "periodDescription": "변경유형 3단계 차등: 그 밖의 경우 10일 / 기술문서 검토 필요 42일 / 임상시험자료 검토 필요 60일",
+    "governmentFeeLocal": "그 밖 KRW 121,000/135,000; 기술문서 검토 KRW 551,000/612,000; 임상시험자료 검토 KRW 1,009,000/1,122,000 (전자민원/방문·우편)",
+    "validity": "-",
+    "notes": "신규 허가와 동일한 3단계 체계가 변경허가에도 그대로 적용됨. 경미한 사항(외관·포장재료·포장단위 등)은 문서 제출만으로 변경허가 의제(시행규칙 제26조⑤), 별도 수수료 미고시",
+    "source": "MFDS 의료기기전자민원시스템 '허가 절차' 수수료표; 정부24 '의료기기 허가사항 변경허가 신청'"
   },
   {
     "id": "c004",
