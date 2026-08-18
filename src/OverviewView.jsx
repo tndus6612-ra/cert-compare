@@ -35,7 +35,7 @@ function EntryRow({ entry }) {
         )}
       </dl>
       <p className="mt-1 text-xs text-slate-300">출처: {entry.source}</p>
-      <TeamNotes certId={entry.id} />
+      <TeamNotes entry={entry} />
     </div>
   )
 }
