@@ -3,6 +3,7 @@ import Badge from './components/Badge'
 import EditEntryModal from './components/EditEntryModal'
 import DeleteEntryModal from './components/DeleteEntryModal'
 import HistoryModal from './components/HistoryModal'
+import { downloadEntriesAsCsv } from './lib/csvExport'
 
 const COLUMNS = [
   { key: 'region', label: '지역' },
@@ -90,7 +91,16 @@ export default function TableView({ filtered, onEntryUpdated, onEntryDeleted }) 
   }
 
   return (
-    <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+    <div>
+      <div className="mb-3 flex justify-end">
+        <button
+          onClick={() => downloadEntriesAsCsv(sorted)}
+          className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50"
+        >
+          ⬇️ CSV 다운로드 ({sorted.length}건)
+        </button>
+      </div>
+      <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
       <table className="min-w-full divide-y divide-slate-200 text-sm">
         <thead className="bg-slate-50">
           <tr>
@@ -128,6 +138,7 @@ export default function TableView({ filtered, onEntryUpdated, onEntryDeleted }) 
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   )
 }
