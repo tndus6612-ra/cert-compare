@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react'
 import Badge from './components/Badge'
 import EditEntryModal from './components/EditEntryModal'
+import DeleteEntryModal from './components/DeleteEntryModal'
+import HistoryModal from './components/HistoryModal'
 
 const COLUMNS = [
   { key: 'region', label: '지역' },
@@ -69,7 +71,7 @@ function renderCell(entry, key) {
   }
 }
 
-export default function TableView({ filtered, onEntryUpdated }) {
+export default function TableView({ filtered, onEntryUpdated, onEntryDeleted }) {
   const [sort, setSort] = useState({ key: null, direction: 'asc' })
 
   const sorted = useMemo(() => {
@@ -116,7 +118,11 @@ export default function TableView({ filtered, onEntryUpdated }) {
                 </td>
               ))}
               <td className="px-3 py-2 align-top">
-                <EditEntryModal entry={entry} onSaved={onEntryUpdated} />
+                <div className="flex flex-wrap gap-1">
+                  <EditEntryModal entry={entry} onSaved={onEntryUpdated} />
+                  <HistoryModal entry={entry} />
+                  <DeleteEntryModal entry={entry} onDeleted={onEntryDeleted} />
+                </div>
               </td>
             </tr>
           ))}

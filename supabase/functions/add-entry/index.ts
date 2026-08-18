@@ -1,4 +1,5 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { logHistory } from '../_shared/history.ts'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -72,6 +73,15 @@ Deno.serve(async (req) => {
       .single()
 
     if (error) throw error
+
+    await logHistory(supabase, {
+      entryId: data.id,
+      action: 'add',
+      country: data.country,
+      productClass: data.product_class,
+      snapshot: data,
+      changedBy: author.trim(),
+    })
 
     return new Response(JSON.stringify({ data }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },

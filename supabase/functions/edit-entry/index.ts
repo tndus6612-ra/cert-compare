@@ -1,4 +1,5 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { logHistory } from '../_shared/history.ts'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -73,12 +74,21 @@ Deno.serve(async (req) => {
     } else {
       ;({ data, error } = await supabase
         .from('entry_overrides')
-        .upsert({ id, ...row, edited_by: editedBy.trim() })
+        .upsert({ id, ...row, edited_by: editedBy.trim(), deleted: false })
         .select()
         .single())
     }
 
     if (error) throw error
+
+    await logHistory(supabase, {
+      entryId: id,
+      action: 'edit',
+      country: data.country,
+      productClass: data.product_class,
+      snapshot: data,
+      changedBy: editedBy.trim(),
+    })
 
     return new Response(JSON.stringify({ data, isCustom: Boolean(isCustom) }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },

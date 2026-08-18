@@ -45,6 +45,7 @@ function mapOverrideEntry(row) {
     notes: row.notes,
     source: row.source,
     edited: true,
+    deleted: Boolean(row.deleted),
   }
 }
 
@@ -84,9 +85,19 @@ export default function App() {
     }
   }
 
+  function handleEntryDeleted(id, isCustom) {
+    if (isCustom) {
+      setCustomEntries((prev) => prev.filter((e) => e.id !== id))
+    } else {
+      setOverrides((prev) =>
+        prev.some((o) => o.id === id) ? prev.map((o) => (o.id === id ? { ...o, deleted: true } : o)) : [...prev, { id, deleted: true }],
+      )
+    }
+  }
+
   const allEntries = useMemo(() => {
     const overrideMap = new Map(overrides.map((o) => [o.id, o]))
-    const effectiveStatic = certData.map((e) => overrideMap.get(e.id) ?? e)
+    const effectiveStatic = certData.map((e) => overrideMap.get(e.id) ?? e).filter((e) => !e.deleted)
     return [...effectiveStatic, ...customEntries]
   }, [customEntries, overrides])
 
@@ -187,7 +198,7 @@ export default function App() {
         {view === 'overview' ? (
           <OverviewView filtered={filtered} />
         ) : (
-          <TableView filtered={filtered} onEntryUpdated={handleEntryUpdated} />
+          <TableView filtered={filtered} onEntryUpdated={handleEntryUpdated} onEntryDeleted={handleEntryDeleted} />
         )}
       </main>
     </div>
