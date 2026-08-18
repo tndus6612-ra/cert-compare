@@ -4,6 +4,7 @@ import EditEntryModal from './components/EditEntryModal'
 import DeleteEntryModal from './components/DeleteEntryModal'
 import HistoryModal from './components/HistoryModal'
 import { downloadEntriesAsCsv } from './lib/csvExport'
+import { getFreshnessStatus } from './lib/freshness'
 
 const COLUMNS = [
   { key: 'region', label: '지역' },
@@ -16,6 +17,7 @@ const COLUMNS = [
   { key: 'validity', label: '유효기간' },
   { key: 'notes', label: '비고' },
   { key: 'source', label: '출처' },
+  { key: 'lastVerified', label: '최신성' },
 ]
 
 // 값이 없는(null) 항목은 정렬 방향과 상관없이 항상 맨 뒤로 보낸다.
@@ -67,6 +69,11 @@ function renderCell(entry, key) {
       return entry.validity ?? '-'
     case 'notes':
       return entry.notes ?? '-'
+    case 'lastVerified': {
+      if (!entry.lastVerified) return '-'
+      const freshness = getFreshnessStatus(entry.lastVerified)
+      return <span className={`whitespace-nowrap rounded-full px-1.5 py-0.5 text-[10px] font-medium ${freshness.className}`}>{freshness.label}</span>
+    }
     default:
       return entry[key]
   }

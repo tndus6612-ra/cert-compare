@@ -1,3 +1,5 @@
+import { getFreshnessStatus } from './freshness'
+
 function escapeCsvValue(value) {
   const str = String(value ?? '')
   if (/[",\n]/.test(str)) {
@@ -13,7 +15,21 @@ function statusLabel(entry) {
 }
 
 export function downloadEntriesAsCsv(entries) {
-  const headers = ['지역', '국가', '인증기관', '신청유형', '제품등급', '심사기간', '약 개월수', '정부수수료', '유효기간', '비고', '출처', '구분']
+  const headers = [
+    '지역',
+    '국가',
+    '인증기관',
+    '신청유형',
+    '제품등급',
+    '심사기간',
+    '약 개월수',
+    '정부수수료',
+    '유효기간',
+    '비고',
+    '출처',
+    '구분',
+    '최신성',
+  ]
 
   const rows = entries.map((e) => [
     e.region,
@@ -28,6 +44,7 @@ export function downloadEntriesAsCsv(entries) {
     e.notes ?? '',
     e.source,
     statusLabel(e),
+    e.lastVerified ? getFreshnessStatus(e.lastVerified).label : '',
   ])
 
   const csvBody = [headers, ...rows].map((row) => row.map(escapeCsvValue).join(',')).join('\r\n')

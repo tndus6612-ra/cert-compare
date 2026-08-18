@@ -7,6 +7,7 @@ import TableView from './TableView'
 import PinBanner from './components/PinBanner'
 import AddEntryModal from './components/AddEntryModal'
 import RecentActivity from './components/RecentActivity'
+import { BASELINE_VERIFIED_DATE } from './lib/freshness'
 
 const VIEWS = [
   { key: 'overview', label: '한눈에 보기' },
@@ -57,17 +58,27 @@ export default function App() {
   const [typeFilter, setTypeFilter] = useState('전체')
   const [customEntries, setCustomEntries] = useState([])
   const [overrides, setOverrides] = useState([])
+  const [lastVerifiedMap, setLastVerifiedMap] = useState({})
 
   useEffect(() => {
     let cancelled = false
     async function loadTeamData() {
-      const [customRes, overrideRes] = await Promise.all([
+      const [customRes, overrideRes, historyRes] = await Promise.all([
         supabase.from('custom_entries').select('*').order('created_at', { ascending: true }),
         supabase.from('entry_overrides').select('*'),
+        supabase.from('entry_history').select('entry_id, changed_at').order('changed_at', { ascending: false }),
       ])
       if (!cancelled) {
         if (!customRes.error && customRes.data) setCustomEntries(customRes.data.map(mapCustomEntry))
         if (!overrideRes.error && overrideRes.data) setOverrides(overrideRes.data.map(mapOverrideEntry))
+        if (!historyRes.error && historyRes.data) {
+          // 이미 changed_at 내림차순 정렬이라, id별로 처음 만나는 값이 가장 최근 기록이다.
+          const map = {}
+          for (const row of historyRes.data) {
+            if (!(row.entry_id in map)) map[row.entry_id] = row.changed_at
+          }
+          setLastVerifiedMap(map)
+        }
       }
     }
     loadTeamData()
@@ -99,8 +110,12 @@ export default function App() {
   const allEntries = useMemo(() => {
     const overrideMap = new Map(overrides.map((o) => [o.id, o]))
     const effectiveStatic = certData.map((e) => overrideMap.get(e.id) ?? e).filter((e) => !e.deleted)
-    return [...effectiveStatic, ...customEntries]
-  }, [customEntries, overrides])
+    const withVerified = (entry) => ({
+      ...entry,
+      lastVerified: lastVerifiedMap[entry.id] ?? BASELINE_VERIFIED_DATE,
+    })
+    return [...effectiveStatic.map(withVerified), ...customEntries.map(withVerified)]
+  }, [customEntries, overrides, lastVerifiedMap])
 
   const filtered = useMemo(() => {
     const query = search.trim().toLowerCase()

@@ -1,4 +1,5 @@
 import { REGION_ORDER, REGION_STYLES } from './lib/certUtils'
+import { getFreshnessStatus } from './lib/freshness'
 import Badge from './components/Badge'
 import TeamNotes from './components/TeamNotes'
 
@@ -40,7 +41,14 @@ function EntryRow({ entry }) {
           </div>
         )}
       </dl>
-      <p className="mt-1 text-xs text-slate-300">출처: {entry.source}</p>
+      <p className="mt-1 flex flex-wrap items-center gap-1.5 text-xs text-slate-300">
+        <span>출처: {entry.source}</span>
+        {entry.lastVerified &&
+          (() => {
+            const freshness = getFreshnessStatus(entry.lastVerified)
+            return <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-medium ${freshness.className}`}>{freshness.label}</span>
+          })()}
+      </p>
       <TeamNotes entry={entry} />
     </div>
   )
