@@ -30,28 +30,65 @@ function mapCustomEntry(row) {
   }
 }
 
+function mapOverrideEntry(row) {
+  return {
+    id: row.id,
+    region: row.region,
+    country: row.country,
+    authority: row.authority,
+    applicationType: row.application_type,
+    productClass: row.product_class,
+    monthsApprox: row.months_approx,
+    periodDescription: row.period_description,
+    governmentFeeLocal: row.government_fee_local,
+    validity: row.validity,
+    notes: row.notes,
+    source: row.source,
+    edited: true,
+  }
+}
+
 export default function App() {
   const [view, setView] = useState('overview')
   const [search, setSearch] = useState('')
   const [regionFilter, setRegionFilter] = useState('전체')
   const [typeFilter, setTypeFilter] = useState('전체')
   const [customEntries, setCustomEntries] = useState([])
+  const [overrides, setOverrides] = useState([])
 
   useEffect(() => {
     let cancelled = false
-    async function loadCustomEntries() {
-      const { data, error } = await supabase.from('custom_entries').select('*').order('created_at', { ascending: true })
-      if (!cancelled && !error && data) {
-        setCustomEntries(data.map(mapCustomEntry))
+    async function loadTeamData() {
+      const [customRes, overrideRes] = await Promise.all([
+        supabase.from('custom_entries').select('*').order('created_at', { ascending: true }),
+        supabase.from('entry_overrides').select('*'),
+      ])
+      if (!cancelled) {
+        if (!customRes.error && customRes.data) setCustomEntries(customRes.data.map(mapCustomEntry))
+        if (!overrideRes.error && overrideRes.data) setOverrides(overrideRes.data.map(mapOverrideEntry))
       }
     }
-    loadCustomEntries()
+    loadTeamData()
     return () => {
       cancelled = true
     }
   }, [])
 
-  const allEntries = useMemo(() => [...certData, ...customEntries], [customEntries])
+  function handleEntryUpdated(data, isCustom) {
+    if (isCustom) {
+      const mapped = mapCustomEntry(data)
+      setCustomEntries((prev) => prev.map((e) => (e.id === mapped.id ? mapped : e)))
+    } else {
+      const mapped = mapOverrideEntry(data)
+      setOverrides((prev) => (prev.some((o) => o.id === mapped.id) ? prev.map((o) => (o.id === mapped.id ? mapped : o)) : [...prev, mapped]))
+    }
+  }
+
+  const allEntries = useMemo(() => {
+    const overrideMap = new Map(overrides.map((o) => [o.id, o]))
+    const effectiveStatic = certData.map((e) => overrideMap.get(e.id) ?? e)
+    return [...effectiveStatic, ...customEntries]
+  }, [customEntries, overrides])
 
   const filtered = useMemo(() => {
     const query = search.trim().toLowerCase()
@@ -147,7 +184,11 @@ export default function App() {
       </header>
 
       <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
-        {view === 'overview' ? <OverviewView filtered={filtered} /> : <TableView filtered={filtered} />}
+        {view === 'overview' ? (
+          <OverviewView filtered={filtered} />
+        ) : (
+          <TableView filtered={filtered} onEntryUpdated={handleEntryUpdated} />
+        )}
       </main>
     </div>
   )

@@ -11,6 +11,9 @@ function EntryRow({ entry }) {
         {entry.custom && (
           <span className="rounded-full bg-violet-100 px-2 py-0.5 text-xs font-medium text-violet-700">팀 추가</span>
         )}
+        {entry.edited && (
+          <span className="rounded-full bg-sky-100 px-2 py-0.5 text-xs font-medium text-sky-700">수정됨</span>
+        )}
       </div>
       <dl className="mt-2 grid grid-cols-1 gap-x-4 gap-y-1 text-sm sm:grid-cols-2">
         <div className="flex gap-1">

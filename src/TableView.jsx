@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import Badge from './components/Badge'
+import EditEntryModal from './components/EditEntryModal'
 
 const COLUMNS = [
   { key: 'region', label: '지역' },
@@ -43,6 +44,11 @@ function renderCell(entry, key) {
               팀 추가
             </span>
           )}
+          {entry.edited && (
+            <span className="ml-1.5 rounded-full bg-sky-100 px-1.5 py-0.5 text-[10px] font-medium text-sky-700">
+              수정됨
+            </span>
+          )}
         </span>
       )
     case 'monthsApprox':
@@ -63,7 +69,7 @@ function renderCell(entry, key) {
   }
 }
 
-export default function TableView({ filtered }) {
+export default function TableView({ filtered, onEntryUpdated }) {
   const [sort, setSort] = useState({ key: null, direction: 'asc' })
 
   const sorted = useMemo(() => {
@@ -98,6 +104,7 @@ export default function TableView({ filtered }) {
                 </span>
               </th>
             ))}
+            <th className="whitespace-nowrap px-3 py-2 text-left text-xs font-semibold text-slate-500">관리</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-slate-100">
@@ -108,6 +115,9 @@ export default function TableView({ filtered }) {
                   {renderCell(entry, col.key)}
                 </td>
               ))}
+              <td className="px-3 py-2 align-top">
+                <EditEntryModal entry={entry} onSaved={onEntryUpdated} />
+              </td>
             </tr>
           ))}
         </tbody>
