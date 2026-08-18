@@ -105,7 +105,11 @@ export default function App() {
   const filtered = useMemo(() => {
     const query = search.trim().toLowerCase()
     return allEntries.filter((entry) => {
-      const matchesSearch = query === '' || entry.country.toLowerCase().includes(query)
+      const matchesSearch =
+        query === '' ||
+        entry.country.toLowerCase().includes(query) ||
+        entry.productClass.toLowerCase().includes(query) ||
+        entry.authority.toLowerCase().includes(query)
       const matchesRegion = regionFilter === '전체' || entry.region === regionFilter
       const matchesType = typeFilter === '전체' || categorize(entry.applicationType) === typeFilter
       return matchesSearch && matchesRegion && matchesType
@@ -148,7 +152,7 @@ export default function App() {
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="국가명 검색 (예: 대한민국, 미국...)"
+              placeholder="국가명·제품등급·인증기관 검색 (예: 대한민국, Class III, MFDS...)"
               className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-slate-400 focus:outline-none sm:max-w-xs"
             />
 
