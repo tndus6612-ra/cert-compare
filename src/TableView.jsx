@@ -34,6 +34,17 @@ function renderCell(entry, key) {
   switch (key) {
     case 'applicationType':
       return <Badge applicationType={entry.applicationType} />
+    case 'productClass':
+      return (
+        <span>
+          {entry.productClass}
+          {entry.custom && (
+            <span className="ml-1.5 rounded-full bg-violet-100 px-1.5 py-0.5 text-[10px] font-medium text-violet-700">
+              팀 추가
+            </span>
+          )}
+        </span>
+      )
     case 'monthsApprox':
       return (
         <span>

@@ -8,6 +8,9 @@ function EntryRow({ entry }) {
       <div className="flex flex-wrap items-center gap-2">
         <Badge applicationType={entry.applicationType} />
         <span className="text-sm font-semibold text-slate-800">{entry.productClass}</span>
+        {entry.custom && (
+          <span className="rounded-full bg-violet-100 px-2 py-0.5 text-xs font-medium text-violet-700">팀 추가</span>
+        )}
       </div>
       <dl className="mt-2 grid grid-cols-1 gap-x-4 gap-y-1 text-sm sm:grid-cols-2">
         <div className="flex gap-1">

@@ -1,30 +1,67 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import certData from '../cert_data.json'
 import { REGION_ORDER, categorize, TYPE_FILTERS } from './lib/certUtils'
+import { supabase } from './lib/supabaseClient'
 import OverviewView from './OverviewView'
 import TableView from './TableView'
 import PinBanner from './components/PinBanner'
+import AddEntryModal from './components/AddEntryModal'
 
 const VIEWS = [
   { key: 'overview', label: '한눈에 보기' },
   { key: 'table', label: '상세 테이블' },
 ]
 
+function mapCustomEntry(row) {
+  return {
+    id: row.id,
+    region: row.region,
+    country: row.country,
+    authority: row.authority,
+    applicationType: row.application_type,
+    productClass: row.product_class,
+    monthsApprox: row.months_approx,
+    periodDescription: row.period_description,
+    governmentFeeLocal: row.government_fee_local,
+    validity: row.validity,
+    notes: row.notes,
+    source: row.source,
+    custom: true,
+  }
+}
+
 export default function App() {
   const [view, setView] = useState('overview')
   const [search, setSearch] = useState('')
   const [regionFilter, setRegionFilter] = useState('전체')
   const [typeFilter, setTypeFilter] = useState('전체')
+  const [customEntries, setCustomEntries] = useState([])
+
+  useEffect(() => {
+    let cancelled = false
+    async function loadCustomEntries() {
+      const { data, error } = await supabase.from('custom_entries').select('*').order('created_at', { ascending: true })
+      if (!cancelled && !error && data) {
+        setCustomEntries(data.map(mapCustomEntry))
+      }
+    }
+    loadCustomEntries()
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  const allEntries = useMemo(() => [...certData, ...customEntries], [customEntries])
 
   const filtered = useMemo(() => {
     const query = search.trim().toLowerCase()
-    return certData.filter((entry) => {
+    return allEntries.filter((entry) => {
       const matchesSearch = query === '' || entry.country.toLowerCase().includes(query)
       const matchesRegion = regionFilter === '전체' || entry.region === regionFilter
       const matchesType = typeFilter === '전체' || categorize(entry.applicationType) === typeFilter
       return matchesSearch && matchesRegion && matchesType
     })
-  }, [search, regionFilter, typeFilter])
+  }, [allEntries, search, regionFilter, typeFilter])
 
   return (
     <div className="min-h-screen pb-16">
@@ -39,18 +76,21 @@ export default function App() {
               </p>
             </div>
 
-            <div className="flex shrink-0 gap-1 rounded-lg bg-slate-100 p-1">
-              {VIEWS.map((v) => (
-                <button
-                  key={v.key}
-                  onClick={() => setView(v.key)}
-                  className={`rounded-md px-3 py-1.5 text-xs font-semibold transition ${
-                    view === v.key ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-700'
-                  }`}
-                >
-                  {v.label}
-                </button>
-              ))}
+            <div className="flex shrink-0 items-center gap-2">
+              <div className="flex gap-1 rounded-lg bg-slate-100 p-1">
+                {VIEWS.map((v) => (
+                  <button
+                    key={v.key}
+                    onClick={() => setView(v.key)}
+                    className={`rounded-md px-3 py-1.5 text-xs font-semibold transition ${
+                      view === v.key ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-700'
+                    }`}
+                  >
+                    {v.label}
+                  </button>
+                ))}
+              </div>
+              <AddEntryModal onAdded={(row) => setCustomEntries((prev) => [...prev, mapCustomEntry(row)])} />
             </div>
           </div>
 
@@ -101,7 +141,7 @@ export default function App() {
           </div>
 
           <p className="mt-2 text-xs text-slate-400">
-            전체 {certData.length}건 중 {filtered.length}건 표시 중
+            전체 {allEntries.length}건 중 {filtered.length}건 표시 중
           </p>
         </div>
       </header>
