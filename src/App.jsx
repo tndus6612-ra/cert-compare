@@ -6,6 +6,7 @@ import OverviewView from './OverviewView'
 import TableView from './TableView'
 import PinBanner from './components/PinBanner'
 import AddEntryModal from './components/AddEntryModal'
+import RecentActivity from './components/RecentActivity'
 
 const VIEWS = [
   { key: 'overview', label: '한눈에 보기' },
@@ -195,6 +196,7 @@ export default function App() {
       </header>
 
       <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
+        <RecentActivity />
         {view === 'overview' ? (
           <OverviewView filtered={filtered} />
         ) : (
