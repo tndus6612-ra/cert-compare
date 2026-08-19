@@ -75,7 +75,21 @@ export default function EntryDetailModal({ entry, onClose }) {
           )}
 
           <div className="mt-3 flex flex-wrap items-center gap-1.5 text-xs text-slate-400">
-            <span>출처: {entry.source}</span>
+            {entry.sourceUrl ? (
+              <span>
+                출처:{' '}
+                <a
+                  href={entry.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sky-600 underline decoration-dotted hover:text-sky-800"
+                >
+                  {entry.source} ↗
+                </a>
+              </span>
+            ) : (
+              <span>출처: {entry.source}</span>
+            )}
             {freshness && (
               <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-medium ${freshness.className}`}>{freshness.label}</span>
             )}

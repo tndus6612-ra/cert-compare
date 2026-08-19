@@ -44,14 +44,14 @@ function EntryRow({ entry, onSelectEntry }) {
           </div>
         )}
       </dl>
-      <p className="mt-1 flex flex-wrap items-center gap-1.5 text-xs text-slate-300">
-        <span>출처: {entry.source}</span>
-        {entry.lastVerified &&
-          (() => {
+      {entry.lastVerified && (
+        <p className="mt-1 flex flex-wrap items-center gap-1.5 text-xs">
+          {(() => {
             const freshness = getFreshnessStatus(entry.lastVerified)
             return <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-medium ${freshness.className}`}>{freshness.label}</span>
           })()}
-      </p>
+        </p>
+      )}
       <div onClick={(e) => e.stopPropagation()}>
         <TeamNotes entry={entry} />
       </div>
