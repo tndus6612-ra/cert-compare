@@ -7,6 +7,7 @@ import TableView from './TableView'
 import PinBanner from './components/PinBanner'
 import AddEntryModal from './components/AddEntryModal'
 import RecentActivity from './components/RecentActivity'
+import EntryDetailModal from './components/EntryDetailModal'
 import { BASELINE_VERIFIED_DATE } from './lib/freshness'
 
 const VIEWS = [
@@ -58,6 +59,7 @@ function readFiltersFromUrl() {
     search: params.get('q') ?? '',
     regionFilter: params.get('region') ?? '전체',
     typeFilter: params.get('type') ?? '전체',
+    entryId: params.get('entry'),
   }
 }
 
@@ -71,6 +73,7 @@ export default function App() {
   const [overrides, setOverrides] = useState([])
   const [lastVerifiedMap, setLastVerifiedMap] = useState({})
   const [linkCopied, setLinkCopied] = useState(false)
+  const [selectedEntryId, setSelectedEntryId] = useState(initialFilters.entryId)
 
   useEffect(() => {
     const params = new URLSearchParams()
@@ -78,10 +81,11 @@ export default function App() {
     if (search !== '') params.set('q', search)
     if (regionFilter !== '전체') params.set('region', regionFilter)
     if (typeFilter !== '전체') params.set('type', typeFilter)
+    if (selectedEntryId) params.set('entry', selectedEntryId)
     const queryString = params.toString()
     const newUrl = window.location.pathname + (queryString ? `?${queryString}` : '')
     window.history.replaceState(null, '', newUrl)
-  }, [view, search, regionFilter, typeFilter])
+  }, [view, search, regionFilter, typeFilter, selectedEntryId])
 
   async function handleCopyLink() {
     await navigator.clipboard.writeText(window.location.href)
@@ -159,6 +163,11 @@ export default function App() {
       return matchesSearch && matchesRegion && matchesType
     })
   }, [allEntries, search, regionFilter, typeFilter])
+
+  const selectedEntry = useMemo(
+    () => allEntries.find((e) => e.id === selectedEntryId) ?? null,
+    [allEntries, selectedEntryId],
+  )
 
   return (
     <div className="min-h-screen pb-16">
@@ -253,11 +262,13 @@ export default function App() {
       <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
         <RecentActivity />
         {view === 'overview' ? (
-          <OverviewView filtered={filtered} />
+          <OverviewView filtered={filtered} onSelectEntry={setSelectedEntryId} />
         ) : (
           <TableView filtered={filtered} onEntryUpdated={handleEntryUpdated} onEntryDeleted={handleEntryDeleted} />
         )}
       </main>
+
+      <EntryDetailModal entry={selectedEntry} onClose={() => setSelectedEntryId(null)} />
     </div>
   )
 }

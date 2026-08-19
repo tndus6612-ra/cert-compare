@@ -3,9 +3,12 @@ import { getFreshnessStatus } from './lib/freshness'
 import Badge from './components/Badge'
 import TeamNotes from './components/TeamNotes'
 
-function EntryRow({ entry }) {
+function EntryRow({ entry, onSelectEntry }) {
   return (
-    <div className="border-t border-slate-100 py-3 first:border-t-0 first:pt-0">
+    <div
+      onClick={() => onSelectEntry(entry.id)}
+      className="cursor-pointer border-t border-slate-100 py-3 first:border-t-0 first:pt-0 hover:bg-slate-50"
+    >
       <div className="flex flex-wrap items-center gap-2">
         <Badge applicationType={entry.applicationType} />
         <span className="text-sm font-semibold text-slate-800">{entry.productClass}</span>
@@ -49,12 +52,14 @@ function EntryRow({ entry }) {
             return <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-medium ${freshness.className}`}>{freshness.label}</span>
           })()}
       </p>
-      <TeamNotes entry={entry} />
+      <div onClick={(e) => e.stopPropagation()}>
+        <TeamNotes entry={entry} />
+      </div>
     </div>
   )
 }
 
-function CountryCard({ country, authority, entries }) {
+function CountryCard({ country, authority, entries, onSelectEntry }) {
   return (
     <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
       <div className="flex items-baseline justify-between gap-2">
@@ -63,14 +68,14 @@ function CountryCard({ country, authority, entries }) {
       </div>
       <div>
         {entries.map((entry) => (
-          <EntryRow key={entry.id} entry={entry} />
+          <EntryRow key={entry.id} entry={entry} onSelectEntry={onSelectEntry} />
         ))}
       </div>
     </div>
   )
 }
 
-function RegionSection({ region, countries }) {
+function RegionSection({ region, countries, onSelectEntry }) {
   const style = REGION_STYLES[region] ?? REGION_STYLES['아시아']
   const totalCount = countries.reduce((sum, [, entries]) => sum + entries.length, 0)
 
@@ -84,14 +89,14 @@ function RegionSection({ region, countries }) {
       </div>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {countries.map(([country, entries]) => (
-          <CountryCard key={country} country={country} authority={entries[0].authority} entries={entries} />
+          <CountryCard key={country} country={country} authority={entries[0].authority} entries={entries} onSelectEntry={onSelectEntry} />
         ))}
       </div>
     </section>
   )
 }
 
-export default function OverviewView({ filtered }) {
+export default function OverviewView({ filtered, onSelectEntry }) {
   // 지역 -> 국가 -> 항목 리스트 순서로 묶기 (원래 데이터 순서 유지)
   const byRegion = new Map()
   for (const entry of filtered) {
@@ -112,7 +117,7 @@ export default function OverviewView({ filtered }) {
   return (
     <div className="space-y-6">
       {grouped.map(({ region, countries }) => (
-        <RegionSection key={region} region={region} countries={countries} />
+        <RegionSection key={region} region={region} countries={countries} onSelectEntry={onSelectEntry} />
       ))}
     </div>
   )
