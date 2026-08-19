@@ -12,7 +12,7 @@
     "validity": "5년 (갱신)",
     "notes": "동등품목 인정 시 신속 심사",
     "source": "MFDS 전자민원 수수료표 2025-2026",
-    "sourceUrl": "https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%9D%98%EB%A3%8C%EA%B8%B0%EA%B8%B0%EB%B2%95%EC%8B%9C%ED%96%89%EA%B7%9C%EC%B9%99/"
+    "sourceUrl": "https://www.law.go.kr/LSW/flDownload.do?flSeq=144231017&bylClsCd=110201"
   },
   {
     "id": "c002",
@@ -27,7 +27,7 @@
     "validity": "5년 (갱신)",
     "notes": "동등성 불인정 시 80영업일로 연장",
     "source": "MFDS 전자민원 수수료표 2025-2026",
-    "sourceUrl": "https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%9D%98%EB%A3%8C%EA%B8%B0%EA%B8%B0%EB%B2%95%EC%8B%9C%ED%96%89%EA%B7%9C%EC%B9%99/"
+    "sourceUrl": "https://www.law.go.kr/LSW/flDownload.do?flSeq=144231017&bylClsCd=110201"
   },
   {
     "id": "c003",
@@ -66,12 +66,12 @@
     "authority": "PMDA",
     "applicationType": "신규",
     "productClass": "Class I (Todokede)",
-    "monthsApprox": 0.5,
-    "periodDescription": "1개월 미만",
-    "governmentFeeLocal": "최소 수준",
+    "monthsApprox": 0,
+    "periodDescription": "즉시 (사전 심사 없음, 신고서 제출 즉시 유효)",
+    "governmentFeeLocal": "수수료 없음 (무료)",
     "validity": "무기한",
     "notes": "자기신고 방식",
-    "source": "MedDeviceGuide 2026",
+    "source": "PMDA 届出制度 안내",
     "sourceUrl": "https://www.pmda.go.jp/review-services/drug-reviews/about-reviews/devices/0027.html"
   },
   {
@@ -81,13 +81,13 @@
     "authority": "PMDA",
     "applicationType": "신규",
     "productClass": "Class II (Ninsho)",
-    "monthsApprox": 4.5,
-    "periodDescription": "3~6개월",
-    "governmentFeeLocal": "¥1,500,000+/건 (인증기관(RCB)별 상이)",
+    "monthsApprox": 2.5,
+    "periodDescription": "약 2~3개월 (등록인증기관별 상이, QMS적합성조사 기간 별도)",
+    "governmentFeeLocal": "¥300,000~900,000/건 (등록인증기관·품목별 상이, QMS 조사비용 별도)",
     "validity": "QMS 5년 갱신",
     "notes": "제3자 인증기관 심사",
-    "source": "PMDA(인증기관별 수수료, 국가고시 수수료표 없음)",
-    "sourceUrl": "https://www.pmda.go.jp/review-services/drug-reviews/about-reviews/devices/0032.html"
+    "source": "PMDA(인증기관별 수수료, 국가고시 수수료표 없음); JAAME 견적 예시",
+    "sourceUrl": "https://www.jaame.or.jp/cert/landing/"
   },
   {
     "id": "c006",
@@ -98,11 +98,11 @@
     "productClass": "Class III/IV (Shonin)",
     "monthsApprox": 21,
     "periodDescription": "6~36개월",
-    "governmentFeeLocal": "¥600,000~¥17,721,200",
+    "governmentFeeLocal": "¥526,400~¥17,721,200 (2022.5.20 개정 PMDA 수수료표 기준)",
     "validity": "QMS 5년 갱신",
     "notes": "임상근거 요구 수준에 따라 편차 큼",
-    "source": "의약품의료기기등법 관계 수수료령 (2025-05-31 개정)",
-    "sourceUrl": "https://laws.e-gov.go.jp/law/417CO0000000091"
+    "source": "PMDA 의료기기 승인신청 수수료표 (令和4年5月20日改定)",
+    "sourceUrl": "https://www.pmda.go.jp/files/000241084.pdf"
   },
   {
     "id": "c007",
@@ -116,8 +116,8 @@
     "governmentFeeLocal": "경미변경(届出): 수수료 없음; 중대변경(承認申請): ¥182,200~9,514,200(등급·변경유형별 차등)",
     "validity": "-",
     "notes": "중대변경 수수료는 신의료기기/개량/후발 여부·임상데이터 요구 여부·등급(II·III/IV)에 따라 11단계로 세분화됨",
-    "source": "의약품의료기기등법 관계 수수료령 (令和4年5月20日 개정)",
-    "sourceUrl": "https://laws.e-gov.go.jp/law/417CO0000000091"
+    "source": "PMDA 의료기기 승인신청 수수료표 (令和4年5月20日改定)",
+    "sourceUrl": "https://www.pmda.go.jp/files/000241084.pdf"
   },
   {
     "id": "c008",
@@ -147,7 +147,7 @@
     "validity": "5년 (갱신)",
     "notes": "현지 임상시험 요구 가능",
     "source": "NMPA 수수료표",
-    "sourceUrl": "https://www.nmpa.gov.cn/zwfw/zwfwjfxx/jfxzxksfgs/index.html"
+    "sourceUrl": "https://www.cirs-group.com/cn/md/geng-xin-zhong-guo-yi-liao-qi-xie-zhu-ce-shou-fei-biao-zhun-nian-12-yue"
   },
   {
     "id": "c010",
@@ -162,7 +162,7 @@
     "validity": "해당없음",
     "notes": null,
     "source": "NMPA 수수료표",
-    "sourceUrl": "https://www.nmpa.gov.cn/zwfw/zwfwjfxx/jfxzxksfgs/index.html"
+    "sourceUrl": "https://www.cirs-group.com/cn/md/geng-xin-zhong-guo-yi-liao-qi-xie-zhu-ce-shou-fei-biao-zhun-nian-12-yue"
   },
   {
     "id": "c011",
@@ -177,7 +177,7 @@
     "validity": "해당없음",
     "notes": null,
     "source": "NMPA 수수료표",
-    "sourceUrl": "https://www.nmpa.gov.cn/zwfw/zwfwjfxx/jfxzxksfgs/index.html"
+    "sourceUrl": "https://www.cirs-group.com/cn/md/geng-xin-zhong-guo-yi-liao-qi-xie-zhu-ce-shou-fei-biao-zhun-nian-12-yue"
   },
   {
     "id": "c012",
@@ -192,7 +192,7 @@
     "validity": "5년",
     "notes": null,
     "source": "NMPA 수수료표",
-    "sourceUrl": "https://www.nmpa.gov.cn/zwfw/zwfwjfxx/jfxzxksfgs/index.html"
+    "sourceUrl": "https://www.cirs-group.com/cn/md/geng-xin-zhong-guo-yi-liao-qi-xie-zhu-ce-shou-fei-biao-zhun-nian-12-yue"
   },
   {
     "id": "c013",
@@ -220,7 +220,7 @@
     "periodDescription": "5~12개월",
     "governmentFeeLocal": "$2,000~3,000/site + $1,000~1,500/기기",
     "validity": "5년(유지비시 영구)",
-    "notes": null,
+    "notes": "일부 자료상 Class B는 Class A와 같은 낮은 구간($1,000/site+$10~50/기기)에 속할 가능성 있음 — Second Schedule 원문 대조 재확인 필요",
     "source": "CDSCO Rules 2017",
     "sourceUrl": "https://cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2022/m_device/Medical%20Devices%20Rules,%202017.pdf"
   },
@@ -278,11 +278,11 @@
     "productClass": "Class A/B",
     "monthsApprox": 0.2,
     "periodDescription": "3~5일",
-    "governmentFeeLocal": "VND 500,000~1,500,000(2026말까지 50%할인)",
+    "governmentFeeLocal": "VND 1,000,000(기준액); 2025-07~2026-12 한시 50%할인 시 500,000",
     "validity": "무기한",
     "notes": null,
-    "source": "MoH 2025",
-    "sourceUrl": "https://congbao.chinhphu.vn/tai-ve-van-ban-so-59-2023-tt-btc-40104-46447?format=pdf"
+    "source": "재무부(Bộ Tài chính) Thông tư 64/2025/TT-BTC (2025-06-30), 기준액은 Thông tư 59/2023/TT-BTC",
+    "sourceUrl": "https://xaydungchinhsach.chinhphu.vn/toan-van-thong-tu-64-2025-tt-btc-quy-dinh-muc-thu-mien-mot-so-khoan-phi-le-phi-11925070116332603.htm"
   },
   {
     "id": "c019",
@@ -293,11 +293,11 @@
     "productClass": "Class C/D",
     "monthsApprox": 1.2,
     "periodDescription": "10~60일",
-    "governmentFeeLocal": "VND 3,000,000(2026말까지 50%할인)",
+    "governmentFeeLocal": "VND 6,000,000(기준액); 2025-07~2026-12 한시 50%할인 시 3,000,000",
     "validity": "무기한",
     "notes": null,
-    "source": "MoH 2025",
-    "sourceUrl": "https://congbao.chinhphu.vn/tai-ve-van-ban-so-59-2023-tt-btc-40104-46447?format=pdf"
+    "source": "재무부(Bộ Tài chính) Thông tư 64/2025/TT-BTC (2025-06-30), 기준액은 Thông tư 59/2023/TT-BTC",
+    "sourceUrl": "https://xaydungchinhsach.chinhphu.vn/toan-van-thong-tu-64-2025-tt-btc-quy-dinh-muc-thu-mien-mot-so-khoan-phi-le-phi-11925070116332603.htm"
   },
   {
     "id": "c020",
@@ -492,7 +492,7 @@
     "validity": "영구(연 유지비)",
     "notes": null,
     "source": "TGA 2026-07",
-    "sourceUrl": "https://www.tga.gov.au/products/regulations-all-products/fees-and-payments/summary-fees-and-charges/summary-fees-and-charges-applications-submitted-tga"
+    "sourceUrl": "https://www.tga.gov.au/sites/default/files/2026-06/fees-charges-summary-1-july-2026.pdf"
   },
   {
     "id": "c033",
@@ -507,7 +507,7 @@
     "validity": "영구(연 유지비)",
     "notes": "MDSAP 인정시 감사비 절감",
     "source": "TGA 2026-07",
-    "sourceUrl": "https://www.tga.gov.au/products/regulations-all-products/fees-and-payments/summary-fees-and-charges/summary-fees-and-charges-applications-submitted-tga"
+    "sourceUrl": "https://www.tga.gov.au/sites/default/files/2026-06/fees-charges-summary-1-july-2026.pdf"
   },
   {
     "id": "c034",
@@ -518,7 +518,7 @@
     "productClass": "510(k) Class II",
     "monthsApprox": 6,
     "periodDescription": "6개월+(지연 흔함)",
-    "governmentFeeLocal": "$26,067(표준)/$6,517(소기업)",
+    "governmentFeeLocal": "$26,067(표준)/$6,517(소기업) — FY2026, 2026-09-30까지; FY2027(2026-10-01~) $28,653/$7,163로 인상",
     "validity": "만료없음(매년 시설등록)",
     "notes": "Special/Abbreviated도 동일 수수료",
     "source": "FDA FY2026",
@@ -533,7 +533,7 @@
     "productClass": "PMA Class III",
     "monthsApprox": 15,
     "periodDescription": "12~18개월+",
-    "governmentFeeLocal": "$579,272(표준)/$144,818(소기업)",
+    "governmentFeeLocal": "$579,272(표준)/$144,818(소기업) — FY2026, 2026-09-30까지; FY2027(2026-10-01~) $636,732/$159,183로 인상",
     "validity": "만료없음(매년 시설등록)",
     "notes": "임상데이터 요구가 좌우",
     "source": "FDA FY2026",
@@ -548,7 +548,7 @@
     "productClass": "PMA 경미한 변경",
     "monthsApprox": 1,
     "periodDescription": "30일",
-    "governmentFeeLocal": "$9,268/$4,634(소기업)",
+    "governmentFeeLocal": "$9,268/$4,634(소기업) — FY2026, 2026-09-30까지; FY2027(2026-10-01~) $10,188/$5,094로 인상",
     "validity": "해당없음",
     "notes": "제조공정 등 경미한 변경",
     "source": "FDA FY2026",
@@ -563,7 +563,7 @@
     "productClass": "PMA 실시간 보충",
     "monthsApprox": 3,
     "periodDescription": "수시 심사",
-    "governmentFeeLocal": "$40,549/$10,137(소기업)",
+    "governmentFeeLocal": "$40,549/$10,137(소기업) — FY2026, 2026-09-30까지; FY2027(2026-10-01~) $44,571/$11,143로 인상",
     "validity": "해당없음",
     "notes": "기존 승인건의 소규모 변경",
     "source": "FDA FY2026",
@@ -578,7 +578,7 @@
     "productClass": "PMA 180일 보충",
     "monthsApprox": 6,
     "periodDescription": "180일",
-    "governmentFeeLocal": "$86,891/$21,723(소기업)",
+    "governmentFeeLocal": "$86,891/$21,723(소기업) — FY2026, 2026-09-30까지; FY2027(2026-10-01~) $95,510/$23,878로 인상",
     "validity": "해당없음",
     "notes": "중간 규모 설계/제조 변경",
     "source": "FDA FY2026",
@@ -593,7 +593,7 @@
     "productClass": "PMA 패널심사 보충",
     "monthsApprox": 12,
     "periodDescription": "자문위 패널심사 필요",
-    "governmentFeeLocal": "$463,418/$115,855(소기업)",
+    "governmentFeeLocal": "$463,418/$115,855(소기업) — FY2026, 2026-09-30까지; FY2027(2026-10-01~) $509,386/$127,347로 인상",
     "validity": "해당없음",
     "notes": "적응증 확대 등 중대 변경",
     "source": "FDA FY2026",
@@ -731,7 +731,8 @@
     "governmentFeeLocal": "MXN 15,206",
     "validity": "5년(최초)/10년(갱신, 2026-01 개정)",
     "notes": null,
-    "source": "COFEPRIS 2026"
+    "source": "Ley Federal de Derechos 제195-A조 (Última Reforma DOF 07-11-2025)",
+    "sourceUrl": "http://www.diputados.gob.mx/LeyesBiblio/pdf/LFD.pdf"
   },
   {
     "id": "c049",
@@ -742,10 +743,11 @@
     "productClass": "Class II/III",
     "monthsApprox": 6.5,
     "periodDescription": "3~10개월",
-    "governmentFeeLocal": "MXN 22,302~28,394",
+    "governmentFeeLocal": "MXN 22,302~28,384",
     "validity": "5년(최초)/10년(갱신, 2026-01 개정)",
     "notes": "패스트트랙(FDA 등 승인시) 30일",
-    "source": "COFEPRIS 2026"
+    "source": "Ley Federal de Derechos 제195-A조 (Última Reforma DOF 07-11-2025)",
+    "sourceUrl": "http://www.diputados.gob.mx/LeyesBiblio/pdf/LFD.pdf"
   },
   {
     "id": "c050",
@@ -803,7 +805,7 @@
     "periodDescription": "6~8개월",
     "governmentFeeLocal": "COP 4,412,400",
     "validity": "10년(Class III IVD 5년)",
-    "notes": null,
+    "notes": "INVIMA 요금표가 2025~2026년 사이 여러 차례(Res. 2025029573, 2025067543, 2026033499) 개정됨 — 이 금액이 최신인지 재확인 필요",
     "source": "INVIMA Resolución 2025067543 de 2025",
     "sourceUrl": "https://www.invima.gov.co/tramites-y-servicios/tarifas"
   },
@@ -816,10 +818,10 @@
     "productClass": "전체 등급",
     "monthsApprox": 9,
     "periodDescription": "6~12개월",
-    "governmentFeeLocal": "ARS 4,450~10,600(수입, 등급별)",
+    "governmentFeeLocal": "FOB가액 기준 종가세: FOB 5,500만 이하 1.5%, 초과 1.25% (2026-06-01부터, 기존 등급별 고정 아란셀 폐지)",
     "validity": "5년 (갱신)",
-    "notes": "IMDRF 관찰국. 연 유지비(ARS 39,500~93,000)는 별도",
-    "source": "ANMAT 공식 아란셀표(2025-06 기준)",
+    "notes": "IMDRF 관찰국. 2026-06-01 종가세 개편 전 연 유지비(ARS 39,500~93,000) 별도 부과 — 개편 후에도 유지되는지 재확인 필요",
+    "source": "ANMAT Disposición 2978/2026 (2026-05-19 관보 공포, 2026-06-01 시행)",
     "sourceUrl": "https://www.argentina.gob.ar/anmat/regulados/aranceles"
   },
   {
@@ -831,10 +833,10 @@
     "productClass": "전체 등급",
     "monthsApprox": 4.5,
     "periodDescription": "3~6개월",
-    "governmentFeeLocal": "자료 확인 필요",
+    "governmentFeeLocal": "CLP 160,027 + IVA(19%) (등급 무관 고정)",
     "validity": "3년 (자동갱신)",
     "notes": "역내 최속",
-    "source": "MedDeviceGuide LATAM 2026",
+    "source": "ISP 서비스코드 9100003 (의료기기 등록)",
     "sourceUrl": "https://www.ispch.gob.cl/andim/registro-y-autorizacion/registro/"
   },
   {
