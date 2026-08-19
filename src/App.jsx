@@ -51,14 +51,43 @@ function mapOverrideEntry(row) {
   }
 }
 
+function readFiltersFromUrl() {
+  const params = new URLSearchParams(window.location.search)
+  return {
+    view: params.get('view') === 'table' ? 'table' : 'overview',
+    search: params.get('q') ?? '',
+    regionFilter: params.get('region') ?? '전체',
+    typeFilter: params.get('type') ?? '전체',
+  }
+}
+
 export default function App() {
-  const [view, setView] = useState('overview')
-  const [search, setSearch] = useState('')
-  const [regionFilter, setRegionFilter] = useState('전체')
-  const [typeFilter, setTypeFilter] = useState('전체')
+  const initialFilters = useMemo(readFiltersFromUrl, [])
+  const [view, setView] = useState(initialFilters.view)
+  const [search, setSearch] = useState(initialFilters.search)
+  const [regionFilter, setRegionFilter] = useState(initialFilters.regionFilter)
+  const [typeFilter, setTypeFilter] = useState(initialFilters.typeFilter)
   const [customEntries, setCustomEntries] = useState([])
   const [overrides, setOverrides] = useState([])
   const [lastVerifiedMap, setLastVerifiedMap] = useState({})
+  const [linkCopied, setLinkCopied] = useState(false)
+
+  useEffect(() => {
+    const params = new URLSearchParams()
+    if (view !== 'overview') params.set('view', view)
+    if (search !== '') params.set('q', search)
+    if (regionFilter !== '전체') params.set('region', regionFilter)
+    if (typeFilter !== '전체') params.set('type', typeFilter)
+    const queryString = params.toString()
+    const newUrl = window.location.pathname + (queryString ? `?${queryString}` : '')
+    window.history.replaceState(null, '', newUrl)
+  }, [view, search, regionFilter, typeFilter])
+
+  async function handleCopyLink() {
+    await navigator.clipboard.writeText(window.location.href)
+    setLinkCopied(true)
+    setTimeout(() => setLinkCopied(false), 2000)
+  }
 
   useEffect(() => {
     let cancelled = false
@@ -206,6 +235,13 @@ export default function App() {
                 </button>
               ))}
             </div>
+
+            <button
+              onClick={handleCopyLink}
+              className="rounded-full border border-slate-300 px-3 py-1 text-xs font-medium text-slate-600 hover:bg-slate-50 sm:ml-auto"
+            >
+              {linkCopied ? '✅ 링크 복사됨' : '🔗 지금 화면 링크 복사'}
+            </button>
           </div>
 
           <p className="mt-2 text-xs text-slate-400">
