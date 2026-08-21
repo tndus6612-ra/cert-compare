@@ -1,7 +1,8 @@
-import { REGION_ORDER, REGION_STYLES, getCountryFlag } from './lib/certUtils'
+import { REGION_ORDER, REGION_STYLES } from './lib/certUtils'
 import { getFreshnessStatus } from './lib/freshness'
 import Badge from './components/Badge'
 import TeamNotes from './components/TeamNotes'
+import CountryFlag from './components/CountryFlag'
 
 function EntryRow({ entry, onSelectEntry }) {
   return (
@@ -63,8 +64,8 @@ function CountryCard({ country, authority, entries, onSelectEntry }) {
   return (
     <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
       <div className="flex items-baseline justify-between gap-2">
-        <h3 className="text-base font-bold text-slate-900">
-          {getCountryFlag(country) && <span className="mr-1">{getCountryFlag(country)}</span>}
+        <h3 className="flex items-center gap-1.5 text-base font-bold text-slate-900">
+          <CountryFlag country={country} className="rounded-sm" />
           {country}
         </h3>
         <span className="text-xs font-medium text-slate-400">{authority}</span>

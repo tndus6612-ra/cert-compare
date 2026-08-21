@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom'
 import { IconX, IconLink, IconCheck, IconExternalLink } from '@tabler/icons-react'
 import Badge from './Badge'
 import { getFreshnessStatus } from '../lib/freshness'
-import { getCountryFlag } from '../lib/certUtils'
+import CountryFlag from './CountryFlag'
 
 export default function EntryDetailModal({ entry, onClose }) {
   const [copied, setCopied] = useState(false)
@@ -26,8 +26,8 @@ export default function EntryDetailModal({ entry, onClose }) {
         <div className="w-full max-w-lg rounded-xl bg-white p-5 text-left shadow-xl" onClick={(e) => e.stopPropagation()}>
           <div className="flex items-start justify-between gap-2">
             <div>
-              <h3 className="text-base font-bold text-slate-900">
-                {getCountryFlag(entry.country) && <span className="mr-1">{getCountryFlag(entry.country)}</span>}
+              <h3 className="flex items-center gap-1.5 text-base font-bold text-slate-900">
+                <CountryFlag country={entry.country} className="rounded-sm" />
                 {entry.country} <span className="font-normal text-slate-400">· {entry.authority}</span>
               </h3>
               <div className="mt-1 flex flex-wrap items-center gap-1.5">

@@ -6,7 +6,7 @@ import DeleteEntryModal from './components/DeleteEntryModal'
 import HistoryModal from './components/HistoryModal'
 import { downloadEntriesAsCsv } from './lib/csvExport'
 import { getFreshnessStatus } from './lib/freshness'
-import { getCountryFlag } from './lib/certUtils'
+import CountryFlag from './components/CountryFlag'
 
 const COLUMNS = [
   { key: 'region', label: '지역', filterable: true },
@@ -44,8 +44,8 @@ function renderCell(entry, key) {
   switch (key) {
     case 'country':
       return (
-        <span>
-          {getCountryFlag(entry.country) && <span className="mr-1">{getCountryFlag(entry.country)}</span>}
+        <span className="inline-flex items-center gap-1.5">
+          <CountryFlag country={entry.country} className="rounded-sm" />
           {entry.country}
         </span>
       )

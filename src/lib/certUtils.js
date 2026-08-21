@@ -35,29 +35,32 @@ export const TYPE_FILTERS = [
   { key: 'renewal', label: '갱신' },
 ]
 
-// 국가명 -> 국기 이모지. cert_data.json의 country 표기와 정확히 일치해야 함.
-const COUNTRY_FLAGS = {
-  '대한민국': '🇰🇷',
-  '일본': '🇯🇵',
-  '중국': '🇨🇳',
-  '인도': '🇮🇳',
-  '싱가포르': '🇸🇬',
-  '베트남': '🇻🇳',
-  'EU (역내)': '🇪🇺',
-  '영국': '🇬🇧',
-  '사우디아라비아': '🇸🇦',
-  '호주': '🇦🇺',
-  '미국': '🇺🇸',
-  '캐나다': '🇨🇦',
-  '멕시코': '🇲🇽',
-  '브라질': '🇧🇷',
-  '콜롬비아': '🇨🇴',
-  '아르헨티나': '🇦🇷',
-  '칠레': '🇨🇱',
-  '페루': '🇵🇪',
+// 국가명 -> ISO 3166-1 alpha-2 국가코드 (flag-icons 라이브러리용).
+// 이모지 국기(🇰🇷)는 윈도우에서 "KR" 텍스트로만 보이는 문제가 있어,
+// 실제 국기 이미지를 그려주는 flag-icons를 사용한다.
+// cert_data.json의 country 표기와 정확히 일치해야 함.
+const COUNTRY_FLAG_CODES = {
+  '대한민국': 'kr',
+  '일본': 'jp',
+  '중국': 'cn',
+  '인도': 'in',
+  '싱가포르': 'sg',
+  '베트남': 'vn',
+  'EU (역내)': 'eu',
+  '영국': 'gb',
+  '사우디아라비아': 'sa',
+  '호주': 'au',
+  '미국': 'us',
+  '캐나다': 'ca',
+  '멕시코': 'mx',
+  '브라질': 'br',
+  '콜롬비아': 'co',
+  '아르헨티나': 'ar',
+  '칠레': 'cl',
+  '페루': 'pe',
 }
 
-// 매핑에 없는 국가(팀이 직접 추가한 카드 등)는 빈 문자열을 반환해 조용히 생략됨.
-export function getCountryFlag(country) {
-  return COUNTRY_FLAGS[country] ?? ''
+// 매핑에 없는 국가(팀이 직접 추가한 카드 등)는 null을 반환해 조용히 생략됨.
+export function getCountryFlagCode(country) {
+  return COUNTRY_FLAG_CODES[country] ?? null
 }
