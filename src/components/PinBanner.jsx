@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
+import { IconLock } from '@tabler/icons-react'
 import { PIN_STORAGE_KEY, PIN_DISMISS_KEY } from '../lib/teamPin'
 
 export default function PinBanner() {
@@ -26,7 +27,9 @@ export default function PinBanner() {
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/50">
       <div className="flex min-h-full items-center justify-center p-4">
       <div className="w-full max-w-sm rounded-2xl bg-white p-6 text-center shadow-2xl">
-        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-2xl">🔑</div>
+        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-amber-700">
+          <IconLock size={22} />
+        </div>
         <h2 className="mt-3 text-lg font-bold text-slate-900">RA팀이신가요?</h2>
         <p className="mt-1 text-sm text-slate-500">
           실제경험 메모를 남기려면 팀 PIN을 한 번만 입력해두세요.

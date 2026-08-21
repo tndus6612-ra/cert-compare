@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { IconPlus, IconX } from '@tabler/icons-react'
 import { supabase } from '../lib/supabaseClient'
 import { PIN_STORAGE_KEY } from '../lib/teamPin'
 
@@ -146,9 +147,9 @@ export default function TeamNotes({ entry }) {
       ) : (
         <button
           onClick={openModal}
-          className="font-medium text-slate-400 underline decoration-dotted hover:text-slate-600"
+          className="inline-flex items-center gap-0.5 font-medium text-slate-400 underline decoration-dotted hover:text-slate-600"
         >
-          + 실제경험 기록하기
+          <IconPlus size={12} /> 실제경험 기록하기
         </button>
       )}
 
@@ -165,8 +166,8 @@ export default function TeamNotes({ entry }) {
                 <h3 className="text-base font-bold text-slate-900">{entry.country}</h3>
                 <p className="text-xs text-slate-400">{entry.productClass} · 우리 팀 실제 경험</p>
               </div>
-              <button onClick={() => setModalOpen(false)} className="text-lg text-slate-400 hover:text-slate-600">
-                ✕
+              <button onClick={() => setModalOpen(false)} className="text-slate-400 hover:text-slate-600">
+                <IconX size={20} />
               </button>
             </div>
 

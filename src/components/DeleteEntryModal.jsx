@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
+import { IconTrash } from '@tabler/icons-react'
 import { PIN_STORAGE_KEY } from '../lib/teamPin'
 
 const FUNCTION_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/delete-entry`
@@ -74,10 +75,10 @@ export default function DeleteEntryModal({ entry, onDeleted }) {
     <>
       <button
         onClick={openModal}
-        className="rounded border border-red-200 px-1.5 py-0.5 text-xs text-red-500 hover:bg-red-50"
+        className="inline-flex items-center gap-1 rounded border border-red-200 px-1.5 py-0.5 text-xs text-red-500 hover:bg-red-50"
         title="이 항목 삭제"
       >
-        🗑️ 삭제
+        <IconTrash size={13} /> 삭제
       </button>
 
       {open &&

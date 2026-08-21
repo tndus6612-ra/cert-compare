@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { IconDownload } from '@tabler/icons-react'
 import Badge from './components/Badge'
 import EditEntryModal from './components/EditEntryModal'
 import DeleteEntryModal from './components/DeleteEntryModal'
@@ -131,9 +132,9 @@ export default function TableView({ filtered, onEntryUpdated, onEntryDeleted }) 
       <div className="mb-3 flex justify-end">
         <button
           onClick={() => downloadEntriesAsCsv(sorted)}
-          className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50"
+          className="inline-flex items-center gap-1 rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50"
         >
-          ⬇️ CSV 다운로드 ({sorted.length}건)
+          <IconDownload size={14} /> CSV 다운로드 ({sorted.length}건)
         </button>
       </div>
       <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">

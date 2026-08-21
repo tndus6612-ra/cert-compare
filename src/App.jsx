@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { IconLink, IconCheck } from '@tabler/icons-react'
 import certData from '../cert_data.json'
 import { REGION_ORDER, categorize, TYPE_FILTERS } from './lib/certUtils'
 import { supabase } from './lib/supabaseClient'
@@ -247,9 +248,17 @@ export default function App() {
 
             <button
               onClick={handleCopyLink}
-              className="shrink-0 self-start rounded-full border border-slate-300 px-3 py-1 text-xs font-medium text-slate-600 hover:bg-slate-50 sm:ml-auto sm:self-auto"
+              className="inline-flex shrink-0 items-center gap-1 self-start rounded-full border border-slate-300 px-3 py-1 text-xs font-medium text-slate-600 hover:bg-slate-50 sm:ml-auto sm:self-auto"
             >
-              {linkCopied ? '✅ 링크 복사됨' : '🔗 지금 화면 링크 복사'}
+              {linkCopied ? (
+                <>
+                  <IconCheck size={14} /> 링크 복사됨
+                </>
+              ) : (
+                <>
+                  <IconLink size={14} /> 지금 화면 링크 복사
+                </>
+              )}
             </button>
           </div>
 

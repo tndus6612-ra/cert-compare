@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { IconClock, IconX } from '@tabler/icons-react'
 import { supabase } from '../lib/supabaseClient'
 
 const ACTION_LABEL = {
@@ -42,10 +43,10 @@ export default function HistoryModal({ entry }) {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="rounded border border-slate-200 px-1.5 py-0.5 text-xs text-slate-500 hover:bg-slate-50"
+        className="inline-flex items-center gap-1 rounded border border-slate-200 px-1.5 py-0.5 text-xs text-slate-500 hover:bg-slate-50"
         title="변경 이력 보기"
       >
-        🕓 이력
+        <IconClock size={13} /> 이력
       </button>
 
       {open &&
@@ -63,8 +64,8 @@ export default function HistoryModal({ entry }) {
                       {entry.country} · {entry.productClass}
                     </p>
                   </div>
-                  <button onClick={() => setOpen(false)} className="text-lg text-slate-400 hover:text-slate-600">
-                    ✕
+                  <button onClick={() => setOpen(false)} className="text-slate-400 hover:text-slate-600">
+                    <IconX size={20} />
                   </button>
                 </div>
 

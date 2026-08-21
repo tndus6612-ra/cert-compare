@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
+import { IconPlus, IconX } from '@tabler/icons-react'
 import { REGION_ORDER } from '../lib/certUtils'
 import { PIN_STORAGE_KEY } from '../lib/teamPin'
 
@@ -82,9 +83,9 @@ export default function AddEntryModal({ onAdded }) {
     <>
       <button
         onClick={openModal}
-        className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50"
+        className="inline-flex items-center gap-1 rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50"
       >
-        + 새 카드 추가
+        <IconPlus size={14} /> 새 카드 추가
       </button>
 
       {open &&
@@ -102,8 +103,8 @@ export default function AddEntryModal({ onAdded }) {
                   공개자료 조사와 별도로, 팀 경험을 바탕으로 새 항목을 추가할 수 있어요. "팀 추가" 배지로 구분되어 표시돼요.
                 </p>
               </div>
-              <button onClick={() => setOpen(false)} className="text-lg text-slate-400 hover:text-slate-600">
-                ✕
+              <button onClick={() => setOpen(false)} className="text-slate-400 hover:text-slate-600">
+                <IconX size={20} />
               </button>
             </div>
 

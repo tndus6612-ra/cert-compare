@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
+import { IconX, IconLink, IconCheck, IconExternalLink } from '@tabler/icons-react'
 import Badge from './Badge'
 import { getFreshnessStatus } from '../lib/freshness'
 import { getCountryFlag } from '../lib/certUtils'
@@ -40,8 +41,8 @@ export default function EntryDetailModal({ entry, onClose }) {
                 )}
               </div>
             </div>
-            <button onClick={onClose} className="text-lg text-slate-400 hover:text-slate-600">
-              ✕
+            <button onClick={onClose} className="text-slate-400 hover:text-slate-600">
+              <IconX size={20} />
             </button>
           </div>
 
@@ -84,9 +85,9 @@ export default function EntryDetailModal({ entry, onClose }) {
                   href={entry.sourceUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sky-600 underline decoration-dotted hover:text-sky-800"
+                  className="inline-flex items-center gap-0.5 text-sky-600 underline decoration-dotted hover:text-sky-800"
                 >
-                  {entry.source} ↗
+                  {entry.source} <IconExternalLink size={12} />
                 </a>
               </span>
             ) : (
@@ -100,9 +101,17 @@ export default function EntryDetailModal({ entry, onClose }) {
           <div className="mt-4 flex justify-end border-t border-slate-100 pt-3">
             <button
               onClick={handleCopyLink}
-              className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50"
+              className="inline-flex items-center gap-1 rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50"
             >
-              {copied ? '✅ 링크 복사됨' : '🔗 이 항목 링크 복사'}
+              {copied ? (
+                <>
+                  <IconCheck size={14} /> 링크 복사됨
+                </>
+              ) : (
+                <>
+                  <IconLink size={14} /> 이 항목 링크 복사
+                </>
+              )}
             </button>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
+import { IconEdit, IconX } from '@tabler/icons-react'
 import { REGION_ORDER } from '../lib/certUtils'
 import { PIN_STORAGE_KEY } from '../lib/teamPin'
 
@@ -84,10 +85,10 @@ export default function EditEntryModal({ entry, onSaved }) {
     <>
       <button
         onClick={openModal}
-        className="rounded border border-slate-200 px-1.5 py-0.5 text-xs text-slate-500 hover:bg-slate-50"
+        className="inline-flex items-center gap-1 rounded border border-slate-200 px-1.5 py-0.5 text-xs text-slate-500 hover:bg-slate-50"
         title="이 항목 수정"
       >
-        ✏️ 수정
+        <IconEdit size={13} /> 수정
       </button>
 
       {open &&
@@ -106,8 +107,8 @@ export default function EditEntryModal({ entry, onSaved }) {
                       {!entry.custom && ' (공개자료 원본 위에 수정 내역이 표시돼요)'}
                     </p>
                   </div>
-                  <button onClick={() => setOpen(false)} className="text-lg text-slate-400 hover:text-slate-600">
-                    ✕
+                  <button onClick={() => setOpen(false)} className="text-slate-400 hover:text-slate-600">
+                    <IconX size={20} />
                   </button>
                 </div>
 
