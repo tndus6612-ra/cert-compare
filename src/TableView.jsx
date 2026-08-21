@@ -5,6 +5,7 @@ import DeleteEntryModal from './components/DeleteEntryModal'
 import HistoryModal from './components/HistoryModal'
 import { downloadEntriesAsCsv } from './lib/csvExport'
 import { getFreshnessStatus } from './lib/freshness'
+import { getCountryFlag } from './lib/certUtils'
 
 const COLUMNS = [
   { key: 'region', label: '지역', filterable: true },
@@ -40,6 +41,13 @@ function SortArrow({ active, direction }) {
 
 function renderCell(entry, key) {
   switch (key) {
+    case 'country':
+      return (
+        <span>
+          {getCountryFlag(entry.country) && <span className="mr-1">{getCountryFlag(entry.country)}</span>}
+          {entry.country}
+        </span>
+      )
     case 'applicationType':
       return <Badge applicationType={entry.applicationType} />
     case 'productClass':

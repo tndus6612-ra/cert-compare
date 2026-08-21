@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { createPortal } from 'react-dom'
 import Badge from './Badge'
 import { getFreshnessStatus } from '../lib/freshness'
+import { getCountryFlag } from '../lib/certUtils'
 
 export default function EntryDetailModal({ entry, onClose }) {
   const [copied, setCopied] = useState(false)
@@ -25,6 +26,7 @@ export default function EntryDetailModal({ entry, onClose }) {
           <div className="flex items-start justify-between gap-2">
             <div>
               <h3 className="text-base font-bold text-slate-900">
+                {getCountryFlag(entry.country) && <span className="mr-1">{getCountryFlag(entry.country)}</span>}
                 {entry.country} <span className="font-normal text-slate-400">· {entry.authority}</span>
               </h3>
               <div className="mt-1 flex flex-wrap items-center gap-1.5">
